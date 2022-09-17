@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.liveshows.golive.GoLiveVM" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/dummy_model_live"
+        tools:context=".views.manageliveshows.golive.GoLive">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/dummy_model_live" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clTopBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvLive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/live_pink_round_corner"
+                        android:backgroundTint="@color/quantum_pink"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="LIVE"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvHearts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:background="@drawable/corner_backgroung"
+                        android:backgroundTint="#aa000000"
+                        android:drawableStart="@drawable/ic_heart_white"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvLive"
+                        app:layout_constraintEnd_toStartOf="@id/tvViewers"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tvViewers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:background="@drawable/corner_backgroung"
+                        android:backgroundTint="#aa000000"
+                        android:drawableStart="@drawable/ic_eye_toggle_show"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:drawableTint="@color/white"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:paddingVertical="@dimen/_5sdp"
+                        android:text="10"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvLive"
+                        app:layout_constraintEnd_toStartOf="@id/ivCloseLive"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivCloseLive"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cross_cancel"
+                        app:layout_constraintBottom_toBottomOf="@id/tvLive"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:tint="@color/white" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clTopBar">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/cllBottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="@dimen/_20sdp"
+                        android:layout_marginBottom="@dimen/_20sdp"
+                        android:background="@android:color/transparent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/clRefInfluencer"
+                            android:padding="@dimen/_2sdp"
+                            android:background="@android:color/transparent"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginTop="@dimen/_200sdp">
+
+                            <com.google.android.material.imageview.ShapeableImageView
+                                android:id="@+id/ivImageChat"
+                                android:layout_width="@dimen/_40sdp"
+                                android:layout_height="@dimen/_40sdp"
+                                android:src="@drawable/mask_group_3070"
+                                android:theme="@style/circleImage"
+                                android:scaleType="centerCrop"
+                                app:strokeWidth="1dp"
+                                app:strokeColor="@color/black"
+                                app:contentPadding="1dp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Jaqulline"
+                                android:textSize="15sp"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/bw_modelica_medium"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/tvFollow"
+                                app:layout_constraintStart_toEndOf="@id/ivImageChat" />
+
+                            <TextView
+                                android:id="@+id/tvFollow"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/live_pink_round_corner"
+                                android:backgroundTint="@color/quantum_pink"
+                                android:fontFamily="@font/bw_modelica_medium"
+                                android:paddingHorizontal="@dimen/_10sdp"
+                                android:paddingVertical="@dimen/_5sdp"
+                                android:text="Follow"
+                                android:textColor="@color/white"
+                                android:textSize="14sp"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"/>
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvDesignation"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="Makeup Artsit"
+                                android:textSize="13sp"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/bw_modelica"
+                                android:layout_marginStart="@dimen/_10sdp"
+                                app:layout_constraintTop_toBottomOf="@id/tvName"
+                                app:layout_constraintStart_toEndOf="@id/ivImageChat"
+                                app:layout_constraintEnd_toEndOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tvMessageArtist"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/i_have_oily_skin_this_primer_covered_my_pores_well_and_gave_me_a_perfect_base"
+                                android:textSize="13sp"
+                                android:layout_marginTop="@dimen/_3sdp"
+                                android:textColor="@color/white"
+                                android:fontFamily="@font/bw_modelica"
+                                app:layout_constraintTop_toBottomOf="@id/ivImageChat"
+                                app:layout_constraintStart_toStartOf="@id/ivImageChat"
+                                app:layout_constraintEnd_toEndOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvChatMessages"
+                            setRecyclerAdapter="@{vm.messagesAdapter}"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_marginBottom="@dimen/_15sdp"
+                            android:maxHeight="@dimen/_250sdp"
+                            android:elevation="@dimen/_2sdp"
+                            android:orientation="vertical"
+                            tools:itemCount="1"
+                            android:layout_marginTop="@dimen/_5sdp"
+                            app:reverseLayout="true"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toTopOf="@+id/llShopAll"
+                            app:layout_constraintTop_toBottomOf="@+id/clRefInfluencer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            tools:listitem="@layout/item_message_live" />
+
+                        <LinearLayout
+                            android:id="@+id/llShopAll"
+                            android:layout_width="@dimen/_50sdp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:background="@color/_1d1d1d"
+                            android:onClick="@{vm::onClick}"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:padding="@dimen/_6sdp"
+                            app:layout_constraintBottom_toTopOf="@+id/cclSendMessageAndShare"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/shop" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/_5sdp"
+                                android:fontFamily="@font/bw_modelica_medium"
+                                android:text="SHOP\nALL"
+                                android:textAlignment="center"
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/_8ssp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                        </LinearLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rvProductsInShow"
+                            setRecyclerAdapter="@{vm.productAdapter}"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="@dimen/_10sdp"
+                            android:layout_marginBottom="@dimen/_10sdp"
+                            android:orientation="horizontal"
+                            android:elevation="@dimen/_2sdp"
+                            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                            app:layout_constraintBottom_toBottomOf="@+id/llShopAll"
+                            app:layout_constraintBottom_toTopOf="@+id/cclSendMessageAndShare"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/llShopAll"
+                            app:layout_constraintTop_toTopOf="@+id/llShopAll"
+                            tools:listitem="@layout/item_product_live" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/cclSendMessageAndShare"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent">
+
+                            <LinearLayout
+                                android:id="@+id/llSendMessage"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/corner_background_outline"
+                                android:orientation="horizontal"
+                                android:padding="@dimen/_5sdp"
+                                android:weightSum="1"
+                                app:layout_constraintEnd_toStartOf="@+id/ivShare"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <androidx.appcompat.widget.AppCompatEditText
+                                    android:id="@+id/etMessage"
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="1"
+                                    android:background="@null"
+                                    android:fontFamily="@font/bw_modelica_medium"
+                                    android:hint="@string/send_message"
+                                    android:paddingHorizontal="@dimen/_10sdp"
+                                    android:paddingVertical="@dimen/_5sdp"
+                                    android:text="@={vm.messageText}"
+                                    android:textColor="@color/_9d9d9d"
+                                    android:textColorHint="@color/_9d9d9d"
+                                    android:textSize="14sp"
+                                    app:layout_constraintBottom_toBottomOf="@id/tvLive"
+                                    app:layout_constraintEnd_toStartOf="@id/tvViewers"
+                                    app:layout_constraintStart_toEndOf="@id/tvLive"
+                                    app:layout_constraintTop_toTopOf="@id/tvLive" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/ivSendMessage"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:onClick="@{vm::onClick}"
+                                    android:src="@drawable/send_message_btn" />
+                            </LinearLayout>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivShare"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/share"
+                                android:translationY="3dp"
+                                app:layout_constraintBottom_toBottomOf="@+id/ivLineHeart"
+                                app:layout_constraintEnd_toStartOf="@id/ivLineHeart"
+                                app:layout_constraintTop_toTopOf="@+id/ivLineHeart" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/ivLineHeart"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:src="@drawable/ic_stroke_heart"
+                                app:layout_constraintBottom_toBottomOf="@+id/llSendMessage"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/llSendMessage" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.core.widget.NestedScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.payment.PaymentVM" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.payment.Payment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbarPayment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{vm::onClick}"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:fontFamily="@font/dharmagothic_r"
+                android:text="Payment"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="38sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nslPayment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/llButtons"
+            app:layout_constraintTop_toBottomOf="@id/clToolbarPayment">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPersonalDetails"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    android:text="Personal Details"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivPerson"
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:theme="@style/circleImage"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/sample_salo_image"
+                    app:layout_constraintStart_toStartOf="@id/textPersonalDetails"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/textPersonalDetails"
+                    />
+
+                <TextView
+                    android:id="@+id/tvName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:textSize="12sp"
+                    android:textColor="#1d1d1d"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    app:layout_constraintStart_toEndOf="@id/ivPerson"
+                    app:layout_constraintTop_toTopOf="@id/ivPerson"
+                    android:lineSpacingExtra="8sp"
+                    android:text="Simran Ahitaan"/>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="12sp"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:textColor="#9d9d9d"
+                    android:drawableStart="@drawable/message1"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    app:layout_constraintStart_toEndOf="@id/ivPerson"
+                    app:layout_constraintTop_toBottomOf="@id/tvName"
+                    android:text="CollenEd5237@gmail.com"/>
+
+                <TextView
+                    android:id="@+id/tvPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:textSize="12sp"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:textColor="#9d9d9d"
+                    android:drawableStart="@drawable/phone1"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    app:layout_constraintStart_toEndOf="@id/ivPerson"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmail"
+                    app:layout_constraintBottom_toBottomOf="@id/ivPerson"
+                    android:text="+1 555 086 0012"/>
+
+
+                <View
+                    android:id="@+id/view1"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvPhone"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@color/_f6f6f6"/>
+
+                <TextView
+                    android:id="@+id/textPaymentMethod"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    android:text="Payment Method"
+                    app:layout_constraintStart_toStartOf="@id/textPersonalDetails"
+                    app:layout_constraintTop_toBottomOf="@+id/view1"
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    setRecyclerAdapter="@{vm.adapter}"
+                    android:id="@+id/rvPaymentTypes"
+                    tools:listitem="@layout/item_payment_type"
+                    tools:itemCount="2"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textPaymentMethod"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/llButtons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:layout_constraintTop_toBottomOf="@id/nslPayment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/tvPriceHere"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="EGP 142.00"
+                android:background="@color/_f6f6f6"
+                android:textAlignment="center"
+                android:textColor="@color/app_color"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"/>
+
+            <TextView
+                android:id="@+id/tvPayNow"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:text="@string/pay"
+                android:onClick="@{vm::onClick}"
+                android:background="@color/app_color"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

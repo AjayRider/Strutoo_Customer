@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.tracking.TrackingVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.tracking.Tracking">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:id="@+id/ivBack"
+            android:elevation="@dimen/_10sdp"
+            android:onClick="@{model::onClick}"
+            android:layout_margin="@dimen/_20sdp"
+            android:background="@drawable/background_round_5_light_grey"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/ic_back"/>
+
+        <fragment
+            android:id="@+id/frameMap"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_15sdp"
+            android:background="@color/white"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tracking Details"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:id="@+id/tvTrack"
+                android:fontFamily="@font/bw_modelica"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="work started"
+                android:textColor="@color/green"
+                android:textStyle="normal"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:background="#f6f6f6"
+                android:layout_marginBottom="@dimen/_30sdp"
+                android:paddingVertical="@dimen/_15sdp"
+                android:paddingHorizontal="@dimen/_5sdp"
+                app:layout_constraintTop_toBottomOf="@+id/tvTrack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_50sdp"
+                    android:layout_height="@dimen/_50sdp"
+                    android:id="@+id/ivProfile"
+                    android:src="@drawable/salon_image"
+                    app:shapeAppearanceOverlay="@style/circleImage"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Curlz Unisex Salon"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvName"
+                    android:textColor="@color/black"
+                    android:fontFamily="@font/bw_modelica"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTime"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="April 06, 2022, 9:58 AM"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvTime"
+                    android:textColor="@color/_1d1d1d"
+                    android:fontFamily="@font/bw_modelica"
+                    app:layout_constraintBottom_toTopOf="@+id/tvEst"
+                    app:layout_constraintTop_toBottomOf="@+id/tvName"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    android:layout_marginStart="@dimen/_10sdp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="ETA : 15 Minutes"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="bold"
+                    android:id="@+id/tvEst"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTime"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfile"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

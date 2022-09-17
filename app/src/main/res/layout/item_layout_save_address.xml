@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_location"
+            android:id="@+id/ivLocation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tvAddressDetails"
+            app:layout_constraintStart_toEndOf="@+id/ivLocation"
+            android:text="Other"
+            android:id="@+id/tvOther"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textStyle="normal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/_1d1d1d"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/tvOther"
+            app:layout_constraintStart_toEndOf="@+id/ivLocation"
+            android:text="145 Stafford Rd, Wallington 13732"
+            android:id="@+id/tvAddressDetails"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textStyle="normal"
+            android:textSize="@dimen/_12ssp"
+            android:textColor="@color/_666666"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/_1B666666"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/tvAddressDetails"
+            app:layout_constraintStart_toStartOf="@+id/tvOther"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.singin.SignInVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".customer.views.singin.SignIn">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/background_sign_in">
+
+            <TextView
+                android:id="@+id/tvLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:drawableStart="@drawable/ic_logo_egy"
+                android:drawableEnd="@drawable/ic_drop_down"
+                android:drawablePadding="@dimen/_5sdp"
+                android:gravity="center"
+                android:onClick="@{model::onClick}"
+                android:text="@{model.country}"
+                android:textSize="@dimen/_14sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="Welcome back!\nYou have been missed"
+                android:textColor="@color/_111111"
+                android:textSize="@dimen/_30sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvLanguage" />
+
+            <TextView
+                android:id="@+id/tvDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="Please enter your email &amp; password to continue"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_40sdp"
+                android:background="@drawable/search_stroke"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:hint="Email address or phone number"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_12sdp"
+                android:singleLine="true"
+                android:textSize="@dimen/_11sdp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDesc" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:textColorHint="@color/grey"
+                app:boxBackgroundMode="none"
+                app:hintEnabled="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/etEmail"
+                app:passwordToggleDrawable="@drawable/password_toggle"
+                app:passwordToggleEnabled="true"
+                app:passwordToggleTint="@color/grey">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_stroke"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:hint="@string/password"
+                    android:inputType="textPassword"
+                    android:maxLength="15"
+                    android:paddingVertical="0dp"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_11sdp" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:button="@drawable/cb_selector"
+                android:checked="true"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="Remember me"
+                android:textSize="@dimen/_9sdp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+            <TextView
+                android:id="@+id/tvForgotPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_16sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:onClick="@{model::onClick}"
+                android:text="Forgot Password?"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_9sdp"
+                app:layout_constraintEnd_toEndOf="@+id/etPassword"
+                app:layout_constraintTop_toBottomOf="@+id/etPassword" />
+
+            <Button
+                android:id="@+id/btnSignIn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_30sdp"
+                android:background="@drawable/search_stroke"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:letterSpacing="-0.0"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_7sdp"
+                android:text="Sign In"
+                android:textAllCaps="false"
+                android:textSize="@dimen/_12sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvForgotPassword" />
+
+            <View
+                android:id="@+id/viewLeft"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/_e5e5e5"
+                app:layout_constraintBottom_toBottomOf="@+id/tvOr"
+                app:layout_constraintEnd_toStartOf="@+id/tvOr"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/tvOr" />
+
+            <TextView
+                android:id="@+id/tvOr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:gravity="center"
+                android:paddingHorizontal="@dimen/_5sdp"
+                android:text="or"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_14sdp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/viewRight"
+                app:layout_constraintStart_toEndOf="@+id/viewLeft"
+                app:layout_constraintTop_toBottomOf="@+id/btnSignIn" />
+
+            <View
+                android:id="@+id/viewRight"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/_e5e5e5"
+                app:layout_constraintBottom_toBottomOf="@+id/tvOr"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvOr"
+                app:layout_constraintTop_toTopOf="@+id/tvOr" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clGoogle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:layout_constraintEnd_toStartOf="@+id/clFacebook"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvOr">
+
+                <ImageView
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:src="@drawable/ic_google"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clFacebook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toEndOf="@+id/clGoogle"
+                app:layout_constraintTop_toBottomOf="@+id/tvOr">
+
+                <ImageView
+                    android:layout_width="@dimen/_35sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:src="@drawable/ic_fb"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <TextView
+                android:id="@+id/tvAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingVertical="@dimen/_5sdp"
+                android:text="Don't have an account?"
+                android:textColor="@color/grey"
+                android:textSize="@dimen/_11sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tvSignUp"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                app:layout_constraintStart_toStartOf="parent"
+              />
+
+            <TextView
+                android:id="@+id/tvSignUp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_bold"
+                android:onClick="@{model::onClick}"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:text=" Sign Up"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_10sdp"
+                app:layout_constraintBottom_toBottomOf="@id/tvAccount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvAccount"
+                app:layout_constraintTop_toTopOf="@+id/tvAccount" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</layout>

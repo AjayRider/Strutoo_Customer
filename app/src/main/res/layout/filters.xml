@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.filters.FiltersVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.filters.Filters">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackFilter"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:background="@drawable/background_round_5_light_grey"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitleFilters"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/dharmagothice_regular"
+            android:text="@{model.filterText}"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_30sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivBackFilter"
+            app:layout_constraintStart_toEndOf="@+id/ivBackFilter"
+            app:layout_constraintTop_toTopOf="@+id/ivBackFilter"
+            tools:text="Filter" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvClearAll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="Clear All"
+            android:textColor="@color/_56e9f3"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitleFilters"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSortOrFilter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_horizontal"
+            android:onClick="@{model::onClick}"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@{model.sortText}"
+            android:textColor="@color/_9d9d9d"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tvTitleFilters"
+            app:layout_constraintEnd_toStartOf="@+id/tvClearAll"
+            tools:text="Sort" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineMain"
+            android:layout_width="@dimen/_1sdp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.40" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvFilterNames"
+            setRecyclerAdapter="@{model.adapterNames}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:background="@color/_f6f6f6"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/btApplyFilter"
+            app:layout_constraintEnd_toStartOf="@id/guideLineMain"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivBackFilter"
+            tools:itemCount="7"
+            tools:listitem="@layout/item_layout_filter_category" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFilterTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="@{model.titleFilterText}"
+            android:textColor="@color/_9d9d9d"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            android:visibility="@{model.filterType == 0 ? View.GONE :View.VISIBLE}"
+            app:layout_constraintStart_toEndOf="@+id/guideLineMain"
+            app:layout_constraintTop_toTopOf="@+id/rvFilterNames"
+            tools:text="Select Color" />
+
+
+        <!--Ratings Layout-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clRatingFilter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{model.isPriceClick ? View.VISIBLE :View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/guideLineMain"
+            app:layout_constraintTop_toBottomOf="@+id/tvFilterTitle">
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvStartPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="EGP 0"
+                android:textColor="@color/_111111"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvEndPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:layout_marginEnd="@dimen/_20sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="EGP 10000"
+                android:textColor="@color/_111111"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <SeekBar
+                android:id="@+id/seekBarPrice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_5sdp"
+                android:layout_marginVertical="@dimen/_5sdp"
+                android:max="10000"
+                android:progress="5000"
+                android:progressTint="@color/_56e9f3"
+                android:thumb="@drawable/ic_thumb"
+                android:thumbTint="@color/_56e9f3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStartPrice" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <!--Category,Brand,Discount,Size,Color,Ratings,Type-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCommon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:visibility="@{model.isPriceClick ? View.GONE :View.VISIBLE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tvFilterTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvFilterTitle">
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCommonFilter"
+                setRecyclerAdapter="@{model.adapterCommon}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="5"
+                tools:listitem="@layout/item_filter_list" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btApplyFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/black_button"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_12sdp"
+            android:text="Apply"
+            android:textAllCaps="false"
+            android:textColor="@color/_ffffff"
+            android:textSize="@dimen/_14sdp"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

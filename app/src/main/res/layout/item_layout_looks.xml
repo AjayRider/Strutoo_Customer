@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <ImageView
+        android:layout_width="@dimen/_150sdp"
+        android:layout_height="@dimen/_150sdp"
+      android:layout_marginStart="@dimen/_8sdp"
+        android:src="@drawable/mask_group_2838">
+
+    </ImageView>
+</layout>

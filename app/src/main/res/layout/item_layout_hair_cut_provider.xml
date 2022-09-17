@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutProvider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, ``)}">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivProfile"
+            android:layout_width="@dimen/_43sdp"
+            android:layout_height="@dimen/_43sdp"
+            android:src="@drawable/ali_baba"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImage" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="Allen"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_7sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivProfile"
+            app:layout_constraintStart_toStartOf="@+id/ivProfile"
+            app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

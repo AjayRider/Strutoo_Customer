@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.models.TypesOfHairCuts" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clWomenHAirCut"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:background="@{model.isSelected?@color/_f2feff:@android:color/transparent}"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, ``)}"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:lineSpacingExtra="16sp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:text="@{model.hairCutType}"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hair Cut &amp; Blow Dry" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="18sp"
+            android:layout_marginStart="@dimen/_3sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@{model.hairCutTime}"
+            android:textColor="@color/_9d9d9d"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvType"
+            tools:text="45 Mins" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica"
+            android:lineSpacingExtra="18sp"
+            android:text="@{`EGP `+ model.hairCutPrice}"
+            android:textColor="@color/_1d1d1d"
+            android:layout_marginEnd="@dimen/_3sdp"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="EGP 49.00 " />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="@{model.isSelected?View.VISIBLE:View.GONE}"
+            setRecyclerAdapter="@{model.childAdapter}"
+            tools:listitem="@layout/item_layout_hair_cut_provider"
+            android:layout_marginTop="@dimen/_5sdp"
+            tools:itemCount="5"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTime"/>
+
+        <View
+            android:id="@+id/WomenHairCutView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingVertical="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/_e6e6e6"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

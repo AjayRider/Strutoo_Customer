@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(view)->model.onItemClick.onClick(view,model.adapterPosition,`click`)}">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_15sdp"
+            android:text="@{model.name}"
+            tools:text = "Cosmetics"
+            android:textColor="@{model.isSelected ? @color/_111111 :@color/_9fa3a8}"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/_5sdp"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:id="@+id/clCategory">
+
+        <ImageView
+            android:id="@+id/ivbanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/group_902979"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvbannercollapse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            android:orientation="vertical"
+            android:visibility="@{model.isSelected?View.VISIBLE:View.GONE}"
+            setRecyclerAdapter="@{model.childAdapter}"
+            app:layout_constraintTop_toBottomOf="@id/ivbanner"
+            app:layout_constraintStart_toStartOf="@id/ivbanner"
+            app:layout_constraintEnd_toEndOf="@id/ivbanner"
+            tools:listitem="@layout/item_layout_shop_category_item"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.editprofile.EditProfileVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.editprofile.EditProfile">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:src="@drawable/ic_back_white"
+                android:id="@+id/ivBack"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="My Profile"
+                android:textColor="@color/white"
+                android:textStyle="normal"
+                android:fontFamily="@font/dharmagothic_r"
+                android:letterSpacing="0.04"
+                android:textAllCaps="true"
+                android:layout_marginStart="@dimen/_10sdp"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textSize="@dimen/_30sdp"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivUser"
+                    android:layout_width="@dimen/_90sdp"
+                    android:layout_height="@dimen/_90sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:padding="@dimen/_10sdp"
+                    android:src="@drawable/ic_user"
+                    app:contentPadding="@dimen/_5sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:shapeAppearanceOverlay="@style/circleImage"
+                    app:strokeColor="@color/black"
+                    app:strokeWidth="@dimen/_1sdp" />
+
+                <ImageView
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_25sdp"
+                    android:background="@drawable/circle_white"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_camera"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivUser"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_80sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivUser">
+
+                    <EditText
+                        android:id="@+id/etFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Simran"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:background="@drawable/edit_text_background"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Ahitaan"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Simranahitaan@apptunix.com"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textSize="@dimen/_12ssp"
+                        android:textStyle="normal" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background">
+
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/countryPicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:ccp_showFlag="false"
+                            android:textSize="@dimen/_12ssp"
+                            app:ccp_showNameCode="false"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/etPhoneNo"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/etPhoneNo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/bw_modelica_medium"
+                            android:hint="Enter phone number"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_12sdp"
+                            android:textSize="@dimen/_12ssp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/countryPicker"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <EditText
+                        android:id="@+id/etDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="July 27, 2020"
+                        android:maxLines="1"
+                        android:textSize="@dimen/_12ssp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textStyle="normal" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/atGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_background"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:focusable="false"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Female"
+                        android:textSize="@dimen/_12ssp"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textStyle="normal" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="@string/change_password_bold"
+                        android:id="@+id/tvChangePassword"
+                        android:textAllCaps="true"
+                        android:textSize="@dimen/_12ssp"
+                        android:onClick="@{model::onClick}"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_15sdp"
+                        android:layout_marginTop="@dimen/_10sdp"/>
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:onClick="@{model::onClick}"
+            android:text="Update"
+            android:letterSpacing="0.0"
+            android:padding="@dimen/_7sdp"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/search_stroke"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

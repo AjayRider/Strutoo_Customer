@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.booklist.BookListVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.booklist.BookList">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/llTitleBookList"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/app_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvTitleName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="Hair"
+                android:gravity="start"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30sdp"
+                app:layout_constraintBottom_toBottomOf="parent"
+
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent"
+                app:textAllCaps="true" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCalander"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:src="@drawable/calander"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLike"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_holo_heart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivCalander"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivCoupon"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+               android:padding="@dimen/_5sdp"
+                android:src="@drawable/coupon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/ivLike"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFilterIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:onClick="@{model::onClick}"
+            android:src="@drawable/filters"
+            app:layout_constraintBottom_toBottomOf="@id/llSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/llSearch"
+            app:tint="@color/grey" />
+
+        <LinearLayout
+            android:id="@+id/llSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/sharp_stroke"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="@dimen/_5sdp"
+            android:weightSum="1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivFilterIcon"
+            app:layout_constraintTop_toBottomOf="@id/llTitleBookList">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search_normal" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@null"
+                android:fontFamily="@font/bw_modelica"
+                android:hint="Search Salons"
+                android:paddingVertical="@dimen/_5sdp"
+                android:paddingStart="@dimen/_8sdp"
+                android:paddingEnd="@dimen/_5sdp"
+                android:text="@={model.searchQuery}"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            setRecyclerAdapter="@{model.bookListAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/llSearch"
+            tools:listitem="@layout/item_book_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

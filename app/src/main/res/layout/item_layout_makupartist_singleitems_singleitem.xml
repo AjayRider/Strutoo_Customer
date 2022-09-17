@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutArtist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sharp_stroke"
+        android:padding="@dimen/_1sdp"
+        android:layout_margin="@dimen/_5sdp"
+        android:backgroundTint="@color/black"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivModelExpertRV"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/blac_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvexpertname"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_horizontal"
+            android:paddingVertical="@dimen/_7sdp"
+            android:text="Makeup Artist"
+            android:textAllCaps="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintEnd_toEndOf="@id/ivModelExpertRV"
+            app:layout_constraintStart_toStartOf="@id/ivModelExpertRV"
+            app:layout_constraintTop_toBottomOf="@id/ivModelExpertRV" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

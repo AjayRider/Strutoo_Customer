@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.profilesetup.ProfileSetupVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_sign_in"
+        tools:context=".customer.views.profilesetup.ProfileSetup">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/background_round_5_light_grey"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp">
+
+                <TextView
+                    android:id="@+id/tvRegister"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dharmagothice_regular"
+                    android:text="Register Yourself"
+
+
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_34sdp"
+
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Please enter your details to Continue"
+                    android:textColor="@color/_666666"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/ivGeneral"
+                    android:layout_width="@dimen/_80sdp"
+                    android:layout_height="@dimen/_80sdp"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:padding="@dimen/_2sdp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/mask_group_3"
+                    android:theme="@style/circleImage"
+                    app:contentPadding="@dimen/_4sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvDesc"
+                    app:strokeColor="@color/_000000"
+                    app:strokeWidth="1dp" />
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="@dimen/_26sdp"
+                    android:layout_height="@dimen/_26sdp"
+                    android:background="@color/_ffffff"
+                    android:src="@drawable/ic_camera"
+                    android:theme="@style/circleImage"
+                    app:contentPadding="@dimen/_5sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivGeneral"
+                    app:layout_constraintEnd_toEndOf="@id/ivGeneral"
+                    app:layout_constraintStart_toStartOf="@id/ivGeneral"
+                    app:layout_constraintTop_toBottomOf="@id/ivGeneral" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginBottom="@dimen/_80sdp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivGeneral">
+
+                    <EditText
+                        android:id="@+id/etFirstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="First name"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+                    <EditText
+                        android:id="@+id/etLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Last name"
+                        android:maxLines="1"
+
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+
+                    <EditText
+                        android:id="@+id/etEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Simranahitaan@apptunix.com"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke">
+
+                        <com.hbb20.CountryCodePicker
+                            android:id="@+id/countryPicker"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:ccp_showFlag="false"
+                            app:ccp_showNameCode="false"
+                            android:textSize="@dimen/_10sdp"
+                            app:ccp_textSize="@dimen/_10sdp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/etPhoneNo"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <EditText
+                            android:id="@+id/etPhoneNo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search_stroke"
+                            android:fontFamily="@font/bw_modelica_medium"
+                            android:hint="2233 3843 009"
+                            android:inputType="number"
+                            android:maxLines="1"
+                            android:paddingHorizontal="@dimen/_10sdp"
+                            android:paddingVertical="@dimen/_12sdp"
+                            android:textColor="@color/_111111"
+                            android:textSize="@dimen/_10sdp"
+                            android:textStyle="normal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/countryPicker"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <EditText
+                        android:id="@+id/etDOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Date of birth"
+                        android:maxLines="1"
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="normal" />
+
+                    <AutoCompleteTextView
+                        android:id="@+id/atGender"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_weight="1"
+                        android:background="@drawable/search_stroke"
+                        android:drawableEnd="@drawable/ic_drop_down"
+                        android:focusable="false"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="Gender"
+
+                        android:paddingHorizontal="@dimen/_10sdp"
+                        android:paddingVertical="@dimen/_12sdp"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+
+                        android:textStyle="normal" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColor="@color/_111111"
+                        android:textColorHint="@color/_949494"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:passwordToggleDrawable="@drawable/password_toggle"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/_949494">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search_stroke"
+                            android:fontFamily="@font/bw_modelica_medium"
+                            android:hint="@string/password"
+                            android:inputType="textPassword"
+                            android:maxLength="15"
+                            android:paddingVertical="0dp"
+                            android:textColor="@color/_111111"
+                            android:textSize="@dimen/_10sdp"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/etConfirmPassword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:textColorHint="@color/_949494"
+                        app:boxBackgroundMode="none"
+                        app:hintEnabled="false"
+                        app:passwordToggleDrawable="@drawable/password_toggle"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/_949494">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/search_stroke"
+                            android:fontFamily="@font/bw_modelica_medium"
+                            android:hint="@string/confirm_password"
+                            android:inputType="textPassword"
+                            android:maxLength="15"
+                            android:paddingVertical="0dp"
+                            android:textColor="@color/_111111"
+                            android:textSize="@dimen/_10sdp"
+                            />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:letterSpacing="-0.01"
+            android:onClick="@{model::onClick}"
+            android:background="@drawable/search_stroke"
+            android:padding="@dimen/_7sdp"
+            android:text="Submit"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

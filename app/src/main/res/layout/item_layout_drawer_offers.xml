@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/layoutOffer"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:layout_marginVertical="@dimen/_5sdp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:scaleType="fitXY"
+            android:id="@+id/ivOffer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/group_902978"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="normal"
+            android:textColor="@color/_1d1d1d"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Upto $34 on minimum purchase of $199"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivOffer"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</layout>

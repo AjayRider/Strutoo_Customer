@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginBottom="@dimen/_10sdp"
+        android:onClick="@{(v) -> model.onItemClick.onClick(v,model.adapterPosition,``)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivFlagItem"
+            android:layout_width="40dp"
+            android:layout_height="40sp"
+            android:theme="@style/circleImage"
+            android:src="@{model.drawable}"
+            tools:src="@drawable/egypy_flag"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tvFlagNameItem"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFlagNameItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textStyle="normal"
+            android:text="@{model.text}"
+            android:textSize="23sp"
+            android:paddingHorizontal="@dimen/_20sdp"
+            app:layout_constraintTop_toTopOf="@id/ivFlagItem"
+            app:layout_constraintBottom_toBottomOf="@id/ivFlagItem"
+            app:layout_constraintStart_toEndOf="@id/ivFlagItem"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textColor="#1d1d1d"
+            android:lineSpacingExtra="-13sp"
+            tools:text="Egypt"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/tick_svg"
+            android:padding="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:visibility="@{model.selected == true ? View.VISIBLE : View.GONE}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

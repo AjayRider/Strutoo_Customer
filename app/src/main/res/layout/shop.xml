@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:attrs="http://schemas.android.com/tools"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.shop.ShopVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.shop.Shop">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivCart"
+                android:layout_width="@dimen/_22sdp"
+                android:layout_height="@dimen/_22sdp"
+                android:onClick="@{model::onClick}"
+                android:src="@drawable/ic_cart"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="SHOP"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30sdp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_10ssp"
+            android:drawableStart="@drawable/ic_location_unselected"
+            android:drawableEnd="@drawable/ic_drop_down"
+            android:drawablePadding="@dimen/_3sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:letterSpacing="-0.01"
+            android:onClick="@{model::onClick}"
+            android:paddingVertical="@dimen/_5sdp"
+            android:paddingEnd="@dimen/_5sdp"
+            android:text="145 Stafford Rd, Wallington 13732"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clToolbar" />
+
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tbLayout"
+            spaceEnd="@{10}"
+            spaceStart="@{10}"
+            tabSelectListener="@{model.tabListener}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_7sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvAddress"
+            app:tabBackground="@drawable/tab_selector_bg"
+            app:tabGravity="fill"
+            app:tabIndicator="@null"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="@color/white"
+            app:tabTextAppearance="@style/tab_text"
+            app:tabTextColor="@color/black">
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Categories" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Brands" />
+
+            <com.google.android.material.tabs.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trends" />
+
+        </com.google.android.material.tabs.TabLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tbLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <!--    Category    -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:visibility="@{model.type.equalsIgnoreCase(`Categories`)?View.VISIBLE:View.GONE ,default=gone}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        setRecyclerAdapter="@{model.categoryAdapter}"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_layout_shop_category" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!-- Brands    -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{model.type.equalsIgnoreCase(`Brands`)?View.VISIBLE:View.GONE  ,default=gone}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/vp2banner"
+                        setViewPagerAdapter="@{model.bannerAdapter}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        app:layout_constraintBottom_toTopOf="@id/vp2banner"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+                        android:id="@+id/spring_dots_indicator"
+                        addIndicator="@{vp2banner}"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        app:dampingRatio="0.5"
+                        app:dotsColor="@color/black"
+                        app:dotsCornerRadius="10dp"
+                        app:dotsSize="10dp"
+                        app:dotsSpacing="6dp"
+                        app:dotsStrokeColor="@color/grey"
+                        app:dotsStrokeWidth="2dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/vp2banner"
+                        app:stiffness="300" />
+
+                    <TextView
+                        android:id="@+id/tvallbrands"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="ALL Brands"
+                        android:textAllCaps="true"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="@id/vp2banner"
+                        app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator" />
+
+                    <View
+                        android:id="@+id/viewallbrands"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="@color/_e5e5e5"
+                        app:layout_constraintBottom_toBottomOf="@id/tvsellall"
+                        app:layout_constraintEnd_toStartOf="@id/tvsellall"
+                        app:layout_constraintStart_toEndOf="@id/tvallbrands"
+                        app:layout_constraintTop_toTopOf="@id/tvallbrands" />
+
+
+                    <TextView
+                        android:id="@+id/tvsellall"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:onClick="@{model::onClick}"
+                        android:text="See All"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_9sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvallbrands"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvallbrands" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvallbrands"
+                        setRecyclerAdapter="@{model.allBrandsAdapter}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:paddingBottom="@dimen/_5sdp"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvallbrands"
+                        app:spanCount="3"
+                        tools:listitem="@layout/item_layout_shop_brands_all_brand" />
+
+                    <View
+                        android:id="@+id/view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_2sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:background="@color/_f8f8f8"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rvallbrands" />
+
+                    <TextView
+                        android:id="@+id/tvtopbrands"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="TOP BRANDS"
+                        android:textAllCaps="true"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="@id/rvallbrands"
+                        app:layout_constraintTop_toBottomOf="@id/view" />
+
+                    <View
+                        android:id="@+id/viewtopbrands"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:background="#e5e5e5"
+                        app:layout_constraintBottom_toBottomOf="@id/tvsellalltopbrand"
+                        app:layout_constraintEnd_toStartOf="@id/tvsellalltopbrand"
+                        app:layout_constraintStart_toEndOf="@id/tvtopbrands"
+                        app:layout_constraintTop_toTopOf="@id/tvtopbrands" />
+
+                    <TextView
+                        android:id="@+id/tvsellalltopbrand"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="See All"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_9sdp"
+                        app:layout_constraintBottom_toBottomOf="@id/tvtopbrands"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/tvtopbrands" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvtopbrands"
+                        setRecyclerAdapter="@{model.topBrandsAdapter}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:orientation="vertical"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/tvsellalltopbrand"
+                        app:layout_constraintStart_toStartOf="@id/tvtopbrands"
+                        app:layout_constraintTop_toBottomOf="@id/tvtopbrands"
+                        tools:itemCount="5"
+                        tools:listitem="@layout/item_layout_shop_brand_top_brand" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--   Trends    -->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:visibility="@{model.type.equalsIgnoreCase(`Trends`)?View.VISIBLE:View.GONE , default=gone}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvLook"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="TOP LOOKS"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="@dimen/_10ssp"
+                        android:background="@color/_1B666666"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvLook"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvLook"
+                        app:layout_constraintTop_toTopOf="@+id/tvLook" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvTopLook"
+                        setRecyclerAdapter="@{model.trendsAdapter}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                       android:paddingEnd="@dimen/_10sdp"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:orientation="vertical"
+                        android:scrollIndicators="none"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvLook"
+                        app:spanCount="3"
+                        attrs:listitem="@layout/item_layout_shop_trends_top_looks" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

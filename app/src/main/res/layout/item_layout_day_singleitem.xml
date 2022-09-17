@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:background="@drawable/etbackground"
+android:paddingVertical="@dimen/_10sdp"
+        android:paddingHorizontal="@dimen/_8sdp" android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvFromTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="8:00"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvToTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="8:50"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textColor="@color/_949494"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintEnd_toEndOf="@id/tvFromTime"
+            app:layout_constraintTop_toBottomOf="@id/tvFromTime" />
+
+        <View
+            android:id="@+id/viewTimeRange"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#dedede"
+            android:layout_marginEnd="1dp"
+            android:layout_marginStart="1dp"
+            app:layout_constraintEnd_toStartOf="@id/tvToTime"
+            app:layout_constraintStart_toStartOf="@id/tvFromTime"
+            app:layout_constraintTop_toTopOf="@id/tvToTime"
+            app:layout_constraintBottom_toBottomOf="@id/tvToTime" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

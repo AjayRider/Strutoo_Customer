@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.rateproduct.RateProductVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="@dimen/_20sdp"
+        tools:context=".customer.views.rateproduct.RateProduct">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackProduct"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCrossRate"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:onClick="@{model::onClick}"
+            android:src="@drawable/ic_close"
+            android:padding="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivBackProduct" />
+
+
+        <TextView
+            android:id="@+id/tvWriteAReview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:fontFamily="@font/dharmagothice_regular"
+            android:text="WRITE A REVIEW"
+            android:textColor="@color/black"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBackProduct" />
+
+        <TextView
+            android:id="@+id/tvRateProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="Rate Porduct"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="@id/tvWriteAReview"
+            app:layout_constraintStart_toStartOf="@id/tvWriteAReview"
+            app:layout_constraintTop_toBottomOf="@id/tvWriteAReview" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:progressBackgroundTint="@color/_dfdfdf"
+            android:progressTint="@color/_e6ce2e"
+            app:layout_constraintEnd_toEndOf="@id/tvWriteAReview"
+            app:layout_constraintStart_toStartOf="@id/tvWriteAReview"
+            app:layout_constraintTop_toBottomOf="@id/tvRateProduct" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_pencil"
+            android:id="@+id/inPencil"
+            app:layout_constraintStart_toStartOf="@id/etExp"
+            app:layout_constraintTop_toTopOf="@id/etExp"
+            />
+
+        <EditText
+            android:id="@+id/etExp"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90sdp"
+            android:layout_marginBottom="@dimen/_20sdp"
+            android:background="@drawable/search_stroke"
+            android:hint="Write something your experience"
+            android:minLines="3"
+            android:fontFamily="@font/roboto_reg"
+            android:textSize="@dimen/_9sdp"
+            android:textColor="@color/_9d9d9d"
+            android:gravity="top"
+            android:paddingStart="@dimen/_35sdp"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@id/btnSubmitRateProduct"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSubmitRateProduct"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/search_stroke"
+            android:backgroundTint="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="Submit"
+            android:padding="@dimen/_7sdp"
+            android:onClick="@{model::onClick}"
+            android:textAllCaps="false"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/_ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

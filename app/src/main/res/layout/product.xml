@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.product.ProductViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.studio.Studio">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vpImage"
+            addDotIndicator="@{vpDots}"
+            setViewPagerAdapter="@{vm.imageAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:foreground="@drawable/gradient_bw"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBackProduct"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            android:onClick="@{vm::onClick}"
+            android:src="@drawable/arrow_left_withbg"
+            app:layout_constraintStart_toStartOf="@id/vpImage"
+            app:layout_constraintTop_toTopOf="@id/vpImage" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLike"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:padding="@dimen/_3sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            android:src="@drawable/heart_with_background"
+            app:layout_constraintEnd_toStartOf="@id/ivBooking"
+            app:layout_constraintTop_toTopOf="@id/vpImage" />
+
+        <TextView
+            android:id="@+id/tvSalon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:elevation="@dimen/_12sdp"
+            android:layout_marginStart="@dimen/_8sdp"
+            android:fontFamily="@font/dharmagothice_regular"
+            android:padding="@dimen/_10sdp"
+            android:text="@string/iconic_beauty_salon"
+            android:textAllCaps="true"
+            android:textColor="@color/_ffffff"
+            android:textSize="@dimen/_26sdp"
+            app:layout_constraintBottom_toBottomOf="@id/vpImage"
+            app:layout_constraintStart_toStartOf="@id/vpImage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpenOrClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:padding="@dimen/_5sdp"
+            android:text="OPEN"
+            android:textColor="@color/_72f585"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSalon"
+            app:layout_constraintEnd_toStartOf="@id/tvRating"
+            app:layout_constraintTop_toTopOf="@+id/tvSalon" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:drawableEnd="@drawable/star"
+            android:drawablePadding="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_vertical"
+            android:padding="@dimen/_5sdp"
+            android:text="4.8"
+            android:textColor="@color/_ffffff"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@id/tvOpenOrClose"
+            app:layout_constraintEnd_toEndOf="@id/vpImage"
+            app:layout_constraintTop_toTopOf="@id/tvOpenOrClose" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivBooking"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:elevation="@dimen/_10sdp"
+            android:padding="@dimen/_3sdp"
+            android:onClick="@{vm::onClick}"
+            android:src="@drawable/calander"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLike"
+            app:layout_constraintEnd_toEndOf="@id/vpImage"
+            app:layout_constraintTop_toTopOf="@+id/ivLike" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/vpDots"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:dotsColor="@color/black"
+            app:dotsCornerRadius="8dp"
+            app:dotsSize="@dimen/_6sdp"
+            app:dotsSpacing="2dp"
+            app:dotsStrokeColor="@color/grey"
+            app:dotsStrokeWidth="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vpImage" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toTopOf="@+id/btnContinue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vpDots">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="145 Stafford Rd, Washington 13732"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:drawableStart="@drawable/vuesax_linear_clock"
+                    android:drawablePadding="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Mon - Fri | 10:00PM - 01:00PM"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvLocation" />
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/ivMap"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:background="@android:color/transparent"
+                    app:cardCornerRadius="@dimen/_30sdp"
+                    app:cardElevation="@dimen/_30sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_10sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/ic_linear_map" />
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="center"
+                    android:text="4 KM"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_8sdp"
+                    app:layout_constraintEnd_toEndOf="@id/ivMap"
+                    app:layout_constraintStart_toStartOf="@id/ivMap"
+                    app:layout_constraintTop_toBottomOf="@id/ivMap" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvReview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_28sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="center"
+                    android:text="@string/_3_222_delivery_reviews"
+                    android:textSize="@dimen/_8sdp"
+                    app:fontFamily="@font/bw_modelica_medium"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTime" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="@dimen/_1sdp"
+                    android:background="@drawable/dashed_line"
+                    app:layout_constraintEnd_toEndOf="@id/tvReview"
+                    app:layout_constraintStart_toStartOf="@id/tvReview"
+                    app:layout_constraintTop_toBottomOf="@id/tvReview" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:scrollbarAlwaysDrawHorizontalTrack="false"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/tvReview"
+                    app:tabBackground="@drawable/line_bg"
+                    app:tabTextAppearance="@style/tab_text"
+                    app:tabIndicator="@color/black"
+                    app:tabIndicatorGravity="stretch"
+                    app:tabRippleColor="@null"
+                    app:tabSelectedTextColor="@color/white" />
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vpFragment"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_marginBottom="@dimen/_5sdp"
+                    android:fillViewport="true"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tabLayout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/search_stroke"
+            android:backgroundTint="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:letterSpacing="0.0"
+            android:onClick="@{vm::onClick}"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="Go to Bookings"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12sdp"
+            android:visibility="@{vm.goToBooking?View.VISIBLE:View.GONE}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

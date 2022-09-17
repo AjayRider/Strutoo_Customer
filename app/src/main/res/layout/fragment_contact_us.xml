@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.contactus.ContactUsVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ContactUs">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:letterSpacing="0.02"
+                android:text="CONTACT US"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_26sdp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/ivcontactusVector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:src="@drawable/contactus_vector"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvFacingAnyIssue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="@string/facing_any_issue"
+                    android:textAllCaps="true"
+                    android:textColor="@color/_111111"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="@id/ivcontactusVector"
+                    app:layout_constraintStart_toStartOf="@id/ivcontactusVector"
+                    app:layout_constraintTop_toBottomOf="@id/ivcontactusVector" />
+
+                <TextView
+                    android:id="@+id/tvgetInTouch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:paddingHorizontal="@dimen/_50sdp"
+                    android:text="@string/getInTouch"
+                    android:textColor="@color/_111111"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="@id/ivcontactusVector"
+                    app:layout_constraintStart_toStartOf="@id/ivcontactusVector"
+                    app:layout_constraintTop_toBottomOf="@id/tvFacingAnyIssue" />
+
+                <View
+                    android:id="@+id/viewChatWithUs"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_25sdp"
+                    android:background="#e6e6e6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvgetInTouch" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clChat"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewChatWithUs">
+
+                    <TextView
+                        android:id="@+id/tvChatWithUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_30sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="Chat with Us"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/ivMessages"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/messages"
+                        app:layout_constraintBottom_toBottomOf="@id/tvChatWithUs"
+                        app:layout_constraintEnd_toStartOf="@id/tvChatWithUs"
+                        app:layout_constraintTop_toTopOf="@id/tvChatWithUs" />
+
+                    <TextView
+                        android:id="@+id/tvChatWithUsExplain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="For a better experience, chat from your registered number"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tvChatWithUs"
+                        app:layout_constraintTop_toBottomOf="@id/tvChatWithUs" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <View
+                    android:id="@+id/viewCallNow"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="#e6e6e6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clChat" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clCallNow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="@id/clChat"
+                    app:layout_constraintTop_toBottomOf="@id/viewCallNow">
+
+                    <TextView
+                        android:id="@+id/tvCallNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_30sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="Call Now"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvCallNowExplain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="For a better experience, call from your registered number"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@id/tvCallNow"
+                        app:layout_constraintTop_toBottomOf="@id/tvCallNow" />
+
+                    <ImageView
+                        android:id="@+id/ivCallNow"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/calling"
+                        app:layout_constraintBottom_toBottomOf="@id/tvCallNow"
+                        app:layout_constraintEnd_toStartOf="@id/tvCallNow"
+                        app:layout_constraintTop_toTopOf="@id/tvCallNow" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/viewWriteToUs"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="#e6e6e6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clCallNow" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clWriteUs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clCallNow">
+
+                    <TextView
+                        android:id="@+id/tvWriteToUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_30sdp"
+                        android:layout_marginTop="@dimen/_20sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="@string/write_to_us"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvWriteToUsExplain"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Average response time 24-48 Hrs"
+                        android:textColor="@color/_111111"
+                        android:textSize="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_4sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvWriteToUs"
+                        app:layout_constraintTop_toBottomOf="@id/tvWriteToUs" />
+
+                    <ImageView
+                        android:id="@+id/ivWriteToUs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:src="@drawable/edit"
+                        app:layout_constraintBottom_toBottomOf="@id/tvWriteToUs"
+                        app:layout_constraintEnd_toStartOf="@id/tvWriteToUs"
+                        app:layout_constraintTop_toTopOf="@id/tvWriteToUs" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <View
+                    android:id="@+id/viewWriteToUsDown"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_1sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:background="#e6e6e6"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clWriteUs" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

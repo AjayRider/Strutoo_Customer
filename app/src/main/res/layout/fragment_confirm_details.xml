@@ -1,0 +1,681 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.bookings.confirmdetails.ConfirmDetailsVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.bookings.confirmdetails.ConfirmDetails">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbarConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{vm::onClick}"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="@string/confirm_details"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30sdp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nsConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirmBooking"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clToolbarConfirm">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_15sdp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clOrderDetail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/_f6f6f6"
+                    android:paddingHorizontal="15sp"
+                    android:paddingVertical="24sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.imageview.ShapeableImageView
+                        android:id="@+id/salonImage"
+                        android:layout_width="@dimen/_60sdp"
+                        android:layout_height="@dimen/_60sdp"
+                        android:background="@drawable/salon_image"
+                        android:src="@drawable/pexels_david_geib_3268732"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:shapeAppearanceOverlay="@style/circleImage" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_bold"
+                       android:hint="Salon Name"
+                        android:text="@{vm.title}"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/salonImage"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvRatigs"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:drawableStart="@drawable/star"
+                        android:drawablePadding="@dimen/_5sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:gravity="start"
+                        android:hint="Hello"
+                        android:text="@{String.valueOf(vm.ratings)}"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/_010e1a"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/salonImage"
+                        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvReviewCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_1sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:hint="5.0"
+                        android:text="(0 Reviews)"
+                        android:textColor="@color/_a7a7a7"
+                        android:textSize="10sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/tvRatigs"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tvRatigs"
+                        app:layout_constraintTop_toTopOf="@+id/tvRatigs" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_8sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:hint="April 06, 2022, 9:58 AM"
+                        android:text="@{vm.time}"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/salonImage"
+                        app:layout_constraintTop_toBottomOf="@+id/tvRatigs" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvServiceType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="Type of Service:"
+                        android:textColor="@color/_a7a7a7"
+                        android:textSize="14sp"
+
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/salonImage" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvServiceType1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="@{vm.serviceType}"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toEndOf="@id/tvServiceType"
+                        app:layout_constraintTop_toBottomOf="@+id/salonImage" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rvConfirmDetail"
+                        setRecyclerAdapter="@{vm.confirmBookingAdapter}"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:overScrollMode="never"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvServiceType"
+                        tools:itemCount="2"
+                        tools:listitem="@layout/item_confirm_detail" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivSorDestLines"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:src="@drawable/source_dest_line"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvFromText" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvFromText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:padding="5dp"
+                        android:text="From"
+                        android:textColor="@color/_a7a7a7"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/rvConfirmDetail" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPickupAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:maxLines="2"
+                        android:paddingStart="@dimen/_5sdp"
+                        android:text="199 Brown Estate Apt. 866"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvFromText"
+                        app:layout_constraintTop_toBottomOf="@+id/tvFromText" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvToText"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginTop="@dimen/_15sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:padding="5dp"
+                        android:text="Destination"
+                        android:textColor="@color/_a7a7a7"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@id/ivSorDestLines"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivSorDestLines" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDropAddress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:maxLines="2"
+                        android:text="199 Brown Estate Apt. 866"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/tvToText"
+                        app:layout_constraintTop_toBottomOf="@+id/tvToText" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTextPersonalInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:padding="5dp"
+                    android:text="@string/personal_info"
+                    android:textColor="@color/_a7a7a7"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clOrderDetail" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivClientImage"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:onClick="@{vm::onClick}"
+                    android:src="@drawable/mask_group_3"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTextPersonalInfo" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvClientName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_15sdp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="Jaquelline Fernandice"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivClientImage"
+                    app:layout_constraintStart_toEndOf="@+id/ivClientImage"
+                    app:layout_constraintTop_toTopOf="@id/ivClientImage" />
+
+                <!--                <androidx.appcompat.widget.AppCompatTextView-->
+                <!--                    android:id="@+id/tvClientAddress"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginStart="@dimen/_15sdp"-->
+                <!--                    android:fontFamily="@font/bw_modelica_medium"-->
+                <!--                    android:hint="856 Spinka Inlet Apt. 576"-->
+                <!--                    android:textColor="@color/_1d1d1d"-->
+                <!--                    android:textSize="14sp"-->
+                <!--                    app:layout_constraintTop_toBottomOf="@id/tvClientName"-->
+                <!--                    app:layout_constraintStart_toEndOf="@+id/ivClientImage"-->
+                <!--                    app:layout_constraintBottom_toBottomOf="@id/ivClientImage"-->
+                <!--                    />-->
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/ccNumberContact"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/line_bg"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ivClientImage">
+
+                    <com.hbb20.CountryCodePicker
+                        android:id="@+id/ccpPhone"
+                        ccpValue="@{vm.countryCode}"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/_14sdp"
+                        app:ccp_arrowColor="@color/black"
+                        app:ccp_contentColor="@color/black"
+                        app:ccp_countryPreference="IN,US,NZ"
+                        app:ccp_padding="0dp"
+                        app:ccp_showFlag="false"
+                        app:ccp_showNameCode="false"
+                        app:ccp_textSize="@dimen/_14sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etPhoneNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:background="@null"
+                        android:hint="@string/phone_number"
+                        android:text="@{vm.custPhone}"
+                        android:textColor="@color/_1d1d1d"
+                        android:textColorHint="@color/_1d1d1d"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ccpPhone"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:id="@+id/llCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/line_bg"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:weightSum="1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ccNumberContact">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_7sdp"
+                        android:src="@drawable/tag" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="2dp"
+                            android:fontFamily="@font/bw_modelica_medium"
+                            android:text="Mb264 Applied"
+                            android:textColor="@color/Cyan"
+                            android:textSize="12sp" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/bw_modelica"
+                            android:text="You saved additional EGP 12.00 "
+                            android:textColor="@color/_1d1d1d"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/cross_cancel" />
+
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/llAddNotes"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/line_bg"
+                    android:paddingHorizontal="@dimen/_12sdp"
+                    android:paddingVertical="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/llCoupon">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivPencil"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/pencil"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etAddService"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="start"
+                        android:minHeight="@dimen/_50sdp"
+                        android:paddingHorizontal="@dimen/_5sdp"
+                        android:text="@string/add_instructions"
+                        android:textAlignment="viewStart"
+                        android:textColor="@color/_9d9d9d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivPencil"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="@string/max_300_words"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/_9d9d9d"
+                        android:textSize="11sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/etAddService" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:background="@drawable/ic_payment_summary_back"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/llAddNotes">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPaymentSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica_bold"
+                        android:text="@string/payment_summary"
+                        android:textColor="#1d1d1d"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Sub Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRPAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="EGP 201.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Discount"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRP" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscountAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="-EGP 24.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRPAmount" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Coupon Discount"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCouponCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="STRUTT27323"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscountAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Tax"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCoupon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTaxPerc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="0.25%"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCouponCode" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Delivery Charges"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTax" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelCharges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="Free"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTaxPerc" />
+
+                    <View
+                        android:id="@+id/vBar1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#eeeeee"
+                        app:layout_constraintEnd_toEndOf="@id/tvDelCharges"
+                        app:layout_constraintStart_toStartOf="@id/tvDelivery"
+                        app:layout_constraintTop_toBottomOf="@id/tvDelivery" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@id/tvTax"
+                        app:layout_constraintTop_toBottomOf="@id/vBar1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_black"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="EGP 49.0"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@id/tvTaxPerc"
+                        app:layout_constraintTop_toBottomOf="@id/vBar1" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:id="@+id/btnConfirmBooking"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_70sdp"
+            android:letterSpacing="0.0"
+            android:padding="@dimen/_7sdp"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/search_stroke"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:onClick="@{vm::onClick}"
+            android:text="@string/confirm_booking"
+            android:textAllCaps="false"
+            android:textColor="@color/_ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

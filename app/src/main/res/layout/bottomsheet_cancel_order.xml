@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btmsheet"
+        android:padding="@dimen/_20sdp">
+
+        <View
+            android:id="@+id/viewBar"
+            android:layout_width="70dp"
+            android:layout_height="2dp"
+            android:background="#4a000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:lineSpacingExtra="28sp"
+            android:text="@string/cancel_order"
+            android:textColor="#2f2f2f"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewBar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivCloseBottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cross_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clReason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:background="@drawable/tab_unselect_bg"
+            android:padding="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle">
+
+            <TextView
+                android:id="@+id/tvReason"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableEnd="@drawable/ccp_ic_arrow_drop_down"
+                android:drawableTint="@color/black"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:gravity="center_vertical"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/select_reason"
+                android:textColor="@color/_949494"
+                android:textSize="14sp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clMessage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_130sdp"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="@drawable/tab_unselect_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clReason">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_15sdp"
+                android:background="@null"
+                android:drawableStart="@drawable/pencil"
+                android:drawablePadding="@dimen/_5sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:hint="@string/your_comments"
+                android:imeOptions="actionDone"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:textColor="@color/_9d9d9d"
+                android:textColorHint="@color/_9d9d9d"
+                android:textSize="@dimen/_12ssp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tvButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@color/black"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_10sdp"
+            android:text="Submit"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clMessage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

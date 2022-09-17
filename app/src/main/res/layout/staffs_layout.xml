@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.models.StaffsDetails" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_2sdp"
+        android:layout_marginEnd="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="@color/_f6f6f6">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivStaffImage"
+            android:layout_width="@dimen/_105sdp"
+            android:layout_height="@dimen/_90sdp"
+            android:scaleType="fitXY"
+            app:srcCompat="@drawable/mask_group_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStaffName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingVertical="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="@{model.staffName}"
+            android:textSize="14sp"
+            android:textColor="@color/_1d1d1d"
+            app:layout_constraintTop_toBottomOf="@id/ivStaffImage"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:text="Prashant" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

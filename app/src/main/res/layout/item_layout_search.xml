@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:background="@drawable/circular_bg"
+        android:paddingStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:paddingEnd="@dimen/_20sdp"
+        android:paddingVertical="@dimen/_8sdp">
+
+        <ImageView
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:id="@+id/ivRecent"
+            android:visibility="@{model.isSelected?View.VISIBLE:View.GONE}"
+            android:src="@drawable/ic_repeat"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/_949494"
+            android:text="Lipshades"
+            android:textSize="@dimen/_9sdp"
+
+            android:fontFamily="@font/bw_modelica_medium"
+            android:layout_marginStart="@dimen/_7sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivRecent"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

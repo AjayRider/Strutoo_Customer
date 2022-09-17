@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2ByLook"
+            setViewPagerAdapter="@{model.childAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTagLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="Charming Glamorous Look !!!:)"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/contents"
+            app:layout_constraintStart_toStartOf="@id/vp2ByLook" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/contents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10ssp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="Your customised Vedix products are rich in over 40 natural herbs like Bhringraj, Aloe Vera, Amla."
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/vp2ByLook"
+            app:layout_constraintEnd_toEndOf="@id/vp2ByLook"
+            app:layout_constraintStart_toStartOf="@id/tvTagLine" />
+
+
+        <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+            android:id="@+id/spring_dots_indicator"
+            addIndicator="@{vp2ByLook}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:dampingRatio="0.5"
+            app:dotsColor="@color/black"
+            app:dotsCornerRadius="@dimen/_5sdp"
+            app:dotsSize="@dimen/_6sdp"
+            app:dotsSpacing="@dimen/_1sdp"
+            app:dotsStrokeColor="@color/grey"
+            app:dotsStrokeWidth="@dimen/_1sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp2ByLook"
+            app:stiffness="100" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            setRecyclerAdapter="@{model.childSecondAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_layout_rv_by_look" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

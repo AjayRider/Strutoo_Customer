@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:layout_width="match_parent"
+        android:id="@+id/layoutBookItem"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivItemImage"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_160sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:src="@drawable/sample_salo_image"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Premium"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="10sp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:background="@color/black2"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintStart_toStartOf="@id/ivItemImage"
+            app:layout_constraintTop_toTopOf="@id/ivItemImage"
+            android:textColor="@color/white"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:theme="@style/circleImage"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivItemImage"
+            android:src="@drawable/heart_in_white"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="OPEN"
+            android:textAllCaps="true"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:textSize="12sp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintEnd_toStartOf="@id/tvRatings"
+            app:layout_constraintBottom_toBottomOf="@id/ivItemImage"
+            android:textColor="@color/green"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRatings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.0"
+            android:textAllCaps="true"
+            android:layout_margin="@dimen/_10sdp"
+            android:textSize="12sp"
+            android:paddingHorizontal="@dimen/_8sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:drawableEnd="@drawable/star"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintEnd_toEndOf="@id/ivItemImage"
+            app:layout_constraintBottom_toBottomOf="@id/ivItemImage"
+            android:textColor="@color/white"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvNameItemList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Iconic Beauty Salon"
+            android:textAllCaps="true"
+            android:textAlignment="viewStart"
+            android:textSize="@dimen/_24sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/dharmagothic_r"
+            app:layout_constraintStart_toStartOf="@id/ivItemImage"
+            app:layout_constraintEnd_toEndOf="@id/ivItemImage"
+            app:layout_constraintTop_toBottomOf="@id/ivItemImage"
+            android:textColor="@color/_111111"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddressItemList"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="145 Stafford Rd, Wallington 13732 "
+            android:textAlignment="viewStart"
+            android:maxLines="2"
+            android:ellipsize="end"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintStart_toStartOf="@id/ivItemImage"
+            app:layout_constraintEnd_toEndOf="@id/ivItemImage"
+            app:layout_constraintTop_toBottomOf="@id/tvNameItemList"
+            android:textColor="@color/_9d9d9d"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

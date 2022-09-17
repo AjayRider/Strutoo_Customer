@@ -1,0 +1,949 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.myorder.suborderdetail.SuborderDetailVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.myorder.suborderdetail.SuborderDetail">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbarSubDetail"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/white"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{vm::onClick}"
+                android:src="@drawable/back_box"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:fontFamily="@font/dharmagothic_r"
+                android:textStyle="normal"
+                android:textSize="40sp"
+                android:textColor="#111111"
+                android:lineSpacingExtra="20sp"
+                android:text="#STR7834"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintEnd_toStartOf="@id/tvHelp"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivHeadphone"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:onClick="@{vm::onClick}"
+                android:src="@drawable/headphone_icon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvHelp"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:textStyle="normal"
+                android:textSize="10sp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:textColor="#b8b8b8"
+                android:lineSpacingExtra="4sp"
+                android:text="Help"
+                app:layout_constraintTop_toTopOf="@id/ivHeadphone"
+                app:layout_constraintBottom_toBottomOf="@id/ivHeadphone"
+                app:layout_constraintEnd_toStartOf="@id/ivHeadphone"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/clToolbarSubDetail"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/product_sample"
+                    android:id="@+id/ivProductImage"
+                    />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tcOrderStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="@color/pink_fe1e68"
+                    android:lineSpacingExtra="18sp"
+                    android:text="READY TO SHIP"
+                    app:layout_constraintEnd_toEndOf="@id/ivProductImage"
+                    app:layout_constraintTop_toBottomOf="@id/ivProductImage"
+                    />
+
+                <TextView
+                    android:id="@+id/textDeliveryAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="#232f3e"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Delivery Address"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tcOrderStatus"
+                    />
+
+                <TextView
+                    android:id="@+id/DeliveryName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:lineSpacingExtra="4sp"
+                    app:layout_constraintStart_toStartOf="@id/textDeliveryAddress"
+                    app:layout_constraintTop_toBottomOf="@id/textDeliveryAddress"
+                    android:text="Simran Ahitaan"/>
+                
+                <View
+                    android:id="@+id/viewDividerHorz"
+                    android:layout_width="2dp"
+                    android:layout_height="0dp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="@id/DeliveryName"
+                    app:layout_constraintBottom_toBottomOf="@+id/DeliveryName"
+                    app:layout_constraintStart_toEndOf="@id/DeliveryName"
+                    app:layout_constraintEnd_toStartOf="@id/DeliveryPhone"
+                    android:background="@color/grey_e2e2e2"/>
+
+                <TextView
+                    android:id="@+id/DeliveryPhone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:lineSpacingExtra="4sp"
+                    android:text="2233 3843 009"
+                    app:layout_constraintTop_toTopOf="@id/DeliveryName"
+                    app:layout_constraintBottom_toBottomOf="@+id/DeliveryName"
+                    app:layout_constraintStart_toEndOf="@id/viewDividerHorz"
+                    />
+
+                <TextView
+                    android:id="@+id/DeliveryEmail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="11sp"
+                    android:textColor="@color/_9d9d9d"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="@id/textDeliveryAddress"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryName"
+                    android:text="Simranahitaan@apptunix.com"/>
+
+                <TextView
+                    android:id="@+id/DeliveryAddressLine1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="11sp"
+                    android:textColor="@color/_9d9d9d"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textDeliveryAddress"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryEmail"
+                    android:text="Sector 44 C"/>
+
+                <TextView
+                    android:id="@+id/DeliveryAddressLine2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="11sp"
+                    android:textColor="@color/_9d9d9d"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textDeliveryAddress"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryAddressLine1"
+                    android:text="856 Spinka Inlet Apt. 57"/>
+
+                <TextView
+                    android:id="@+id/DeliveryAddressCountry"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="11sp"
+                    android:textColor="@color/_9d9d9d"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textDeliveryAddress"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryAddressLine2"
+                    android:text="US"/>
+
+                <View
+                    android:id="@+id/view2"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/DeliveryAddressCountry"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@color/_f6f6f6">
+                </View>
+
+                <TextView
+                    android:id="@+id/textProductDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="#232f3e"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Product Details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view2"
+                    />
+
+                <TextView
+                    android:id="@+id/textItemName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textProductDetails"
+                    android:text="Item Name"/>
+
+                <TextView
+                    android:id="@+id/tvItemName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textProductDetails"
+                    android:text="EYe liner"/>
+
+                <TextView
+                    android:id="@+id/textItemPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textItemName"
+                    android:text="Price"/>
+
+                <TextView
+                    android:id="@+id/tvItemPrice"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toTopOf="@id/textItemPrice"
+                    app:layout_constraintBottom_toBottomOf="@+id/textItemPrice"
+                    android:text="EGP 1254"/>
+
+                <TextView
+                    android:id="@+id/textItemCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textItemPrice"
+                    android:text="Number Of pieces per Item"/>
+
+                <TextView
+                    android:id="@+id/tvItemCount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toTopOf="@id/textItemCount"
+                    app:layout_constraintBottom_toBottomOf="@+id/textItemCount"
+                    android:text="4"/>
+
+
+                <TextView
+                    android:id="@+id/textItemStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textItemCount"
+                    android:text="Shipping Status"/>
+
+                <TextView
+                    android:id="@+id/tvItemStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toTopOf="@id/textItemStatus"
+                    app:layout_constraintBottom_toBottomOf="@+id/textItemStatus"
+                    android:text="Ready"/>
+
+
+                <TextView
+                    android:id="@+id/textItemSellerName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/textItemStatus"
+                    android:text="Seller Name"/>
+
+                <TextView
+                    android:id="@+id/tvItemSellerName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="14sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="6sp"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toTopOf="@id/textItemSellerName"
+                    app:layout_constraintBottom_toBottomOf="@+id/textItemSellerName"
+                    android:text="Sugar Cosmetics"/>
+
+                <View
+                    android:id="@+id/view3"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textItemSellerName"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@color/_f6f6f6"/>
+
+                <TextView
+                    android:id="@+id/textShippingDetails"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="#232f3e"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_marginHorizontal="@dimen/_10ssp"
+                    android:text="Shipping Details"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view3"
+                    />
+
+                <TextView
+                    android:id="@+id/tvShippingAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="#000000"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    app:layout_constraintStart_toStartOf="@+id/textShippingDetails"
+                    app:layout_constraintTop_toBottomOf="@+id/textShippingDetails"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    android:text="23715 Malibu Road, Malibu, CA"/>
+
+                <TextView
+                    android:id="@+id/tvShippingPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="@color/_9d9d9d"
+                    android:lineSpacingExtra="4sp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    app:layout_constraintStart_toStartOf="@+id/textShippingDetails"
+                    app:layout_constraintTop_toBottomOf="@+id/tvShippingAddress"
+                    app:layout_constraintEnd_toEndOf="@id/textDeliveryAddress"
+                    android:text="2333 2255 555"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvStatuss"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    setRecyclerAdapter="@{vm.orderStatusAdapter}"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    tools:listitem="@layout/item_order_status"
+                    tools:itemCount="3"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@id/textProductDetails"
+                    app:layout_constraintTop_toBottomOf="@id/tvShippingPhone"
+                    app:layout_constraintStart_toStartOf="@id/textProductDetails"
+                    />
+
+
+                <View
+                    android:id="@+id/view4"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvStatuss"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@color/_f6f6f6">
+                </View>
+
+                <TextView
+                    android:id="@+id/textSellerInformation"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="#232f3e"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:text="Seller Information"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view4"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="@dimen/_60sdp"
+                    android:src="@drawable/ali_baba"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textSellerInformation"
+                    app:layout_constraintTop_toBottomOf="@id/textSellerInformation"
+                    android:id="@+id/ivSellerImage"/>
+
+                <TextView
+                    android:id="@+id/tvSellerName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    app:layout_constraintTop_toTopOf="@id/ivSellerImage"
+                    app:layout_constraintStart_toEndOf="@id/ivSellerImage"
+                    app:layout_constraintBottom_toTopOf="@id/tvVerifiedTag"
+                    app:layout_constraintEnd_toStartOf="@id/tvSellerRatings"
+                    android:text="Micheal John"/>
+
+                <TextView
+                    android:id="@+id/tvSellerRatings"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="18sp"
+                    android:drawableEnd="@drawable/star"
+                    android:drawablePadding="5dp"
+                    app:layout_constraintTop_toTopOf="@id/tvSellerName"
+                    app:layout_constraintEnd_toEndOf="@id/textSellerInformation"
+                    android:text="4.8"/>
+
+                <TextView
+                    android:id="@+id/tvVerifiedTag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="10sp"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="8sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvSellerName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvSellerName"
+                    app:layout_constraintBottom_toBottomOf="@id/ivSellerImage"
+                    android:drawableStart="@drawable/verified"
+                    android:drawablePadding="@dimen/_3sdp"
+                    android:text="Verified Seller"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/sellerDescription"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:textColor="#9d9d9d"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/ivSellerImage"
+                    app:layout_constraintTop_toBottomOf="@id/ivSellerImage"
+                    app:layout_constraintEnd_toEndOf="@id/textSellerInformation"
+                    android:text="@string/dummy_text"/>
+
+                <TextView
+                    android:id="@+id/sellerAddress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:drawableStart="@drawable/ic_location"
+                    android:drawableTint="@color/_1d1d1d"
+                    android:drawablePadding="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textSellerInformation"
+                    app:layout_constraintEnd_toEndOf="@id/textSellerInformation"
+                    app:layout_constraintTop_toBottomOf="@id/sellerDescription"
+                    android:text="145 Stafford Rd, Wallington 13732"/>
+
+                <TextView
+                    android:id="@+id/sellerProvidedTime"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    android:textColor="#1d1d1d"
+                    android:lineSpacingExtra="8sp"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:drawableStart="@drawable/watch"
+                    android:drawablePadding="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="@id/textSellerInformation"
+                    app:layout_constraintEnd_toEndOf="@id/textSellerInformation"
+                    app:layout_constraintTop_toBottomOf="@id/sellerAddress"
+                    android:text="08:00 AM - 11:00 PM"/>
+
+                <View
+                    android:id="@+id/view5"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/sellerProvidedTime"
+                    android:layout_marginVertical="@dimen/_15sdp"
+                    android:background="@color/_f6f6f6"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/ic_payment_summary_back"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/view5">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPaymentSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Payment Summary"
+                        android:textColor="#1d1d1d"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Sub Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRPAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="EGP 201.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Discount"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRP" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscountAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="-EGP 24.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRPAmount" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Coupon Discount"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCouponCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="STRUTT27323"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscountAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Tax"
+                        android:visibility="gone"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCoupon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTaxPerc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="0.25%"
+                        android:visibility="gone"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCouponCode" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Delivery Charges"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTax" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelCharges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="Free"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTaxPerc" />
+
+                    <View
+                        android:id="@+id/vBar1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#eeeeee"
+                        app:layout_constraintEnd_toEndOf="@id/tvDelCharges"
+                        app:layout_constraintStart_toStartOf="@id/tvDelivery"
+                        app:layout_constraintTop_toBottomOf="@id/tvDelivery" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintStart_toStartOf="@id/tvTax"
+                        app:layout_constraintTop_toBottomOf="@id/vBar1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:paddingBottom="@dimen/_10sdp"
+                        android:text="EGP115.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_10sdp"
+                        app:layout_constraintEnd_toEndOf="@id/tvTaxPerc"
+                        app:layout_constraintTop_toBottomOf="@id/vBar1" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:id="@+id/textPaymentMethod"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:textColor="#232f3e"
+                    android:lineSpacingExtra="5sp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:text="Payment Method"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clPayment"
+                    />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/masterCArdImage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/masterio"
+                    app:layout_constraintStart_toStartOf="@id/textPaymentMethod"
+                    app:layout_constraintTop_toBottomOf="@id/textPaymentMethod"
+                    />
+
+                <TextView
+                    android:id="@+id/masterCardName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="#1d1d1d"
+                    android:layout_marginTop="@dimen/_7sdp"
+                    android:lineSpacingExtra="4sp"
+                    app:layout_constraintStart_toEndOf="@id/masterCArdImage"
+                    app:layout_constraintTop_toTopOf="@id/masterCArdImage"
+                    app:layout_constraintBottom_toBottomOf="@id/masterCArdImage"
+                    tools:text="Mastercard"/>
+
+                <TextView
+                    android:id="@+id/tvTermsAdConds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textStyle="normal"
+                    android:textSize="12sp"
+                    android:textColor="#666666"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:lineSpacingExtra="4sp"
+                    android:gravity="center_horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/masterCArdImage"
+                    tools:text="@string/terms_conds"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cancel Item"
+            android:letterSpacing="0.0"
+            android:padding="@dimen/_7sdp"
+            android:textSize="@dimen/_12sdp"
+            android:background="@drawable/search_stroke"
+            android:id="@+id/btnCancelOrder"
+            android:onClick="@{vm::onClick}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAllCaps="false"
+            android:visibility="@{vm.isPast !=true ? View.VISIBLE : View.GONE}"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_20sdp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:visibility="@{vm.isPast !=true ? View.GONE : View.VISIBLE}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Return"
+                android:letterSpacing="0.0"
+                android:padding="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/search_stroke"
+                android:id="@+id/btnReturn"
+                android:onClick="@{vm::onClick}"
+                app:layout_constraintTop_toBottomOf="@+id/tvTermsAdConds"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAllCaps="false"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="Repeat"
+                android:id="@+id/btnRepeat"
+                android:letterSpacing="0.0"
+                android:padding="@dimen/_7sdp"
+                android:textSize="@dimen/_12sdp"
+                android:background="@drawable/search_stroke"
+                android:onClick="@{vm::onClick}"
+                app:layout_constraintTop_toBottomOf="@+id/tvTermsAdConds"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:textAllCaps="false"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"/>
+
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

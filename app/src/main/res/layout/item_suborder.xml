@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layoutSubOrder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->model.onItemClick.onClick(v,model.adapterPosition,``)}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:src="@drawable/product_sample"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="18sp"
+            android:text="M.A.C PREP Primer"
+            android:textColor="#1d1d1d"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toTopOf="@id/ivImage" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvProductPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="16sp"
+            android:text="EGP 67.70"
+            android:textColor="#1d1d1d"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toBottomOf="@id/tvProductName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvStatusOrder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="18sp"
+            android:text="@{model.past == true ? model.isSelected==true? `DELIVERED `:`CANCELLED` : `ONGOING`}"
+            android:textColor="@{model.past == true ? model.isSelected == true ? @color/_4fe8f2 : @color/torch_red : @color/_4fe8f2 }"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toBottomOf="@id/tvProductPrice"
+            tools:text="ongoing" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvRateNow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="18sp"
+            android:text="@string/rate_now"
+            android:textAllCaps="true"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="12sp"
+            android:onClick="@{(v)->model.onItemClick.onClick(v,model.adapterPosition,``)}"
+        android:textStyle="normal"
+            android:visibility="@{model.past == true ? model.isSelected==true? View.GONE:View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toBottomOf="@id/tvStatusOrder" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:progressTint="@color/yellow"
+            android:rating="4.5"
+            android:visibility="@{model.past == true ? model.isSelected!=true? View.GONE:View.VISIBLE : View.GONE}"
+            app:layout_constraintStart_toEndOf="@id/ivImage"
+            app:layout_constraintTop_toBottomOf="@id/tvStatusOrder" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:padding="@dimen/_5sdp"
+            android:rotation="180"
+            android:src="@drawable/back"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/_9d9d9d" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:background="@color/_e6e6e6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivImage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

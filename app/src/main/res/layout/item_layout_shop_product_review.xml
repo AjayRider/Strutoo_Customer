@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clServices"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_10sdp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivUserImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@drawable/mask_group_8" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="@{model.name}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/tvVerify"
+            app:layout_constraintStart_toEndOf="@id/ivUserImage"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Prashant Singh" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvVerify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:drawableStart="@drawable/icon_verify"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="@string/verified_customer"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ivUserImage"
+            app:layout_constraintStart_toEndOf="@id/ivUserImage"
+            app:layout_constraintTop_toBottomOf="@id/tvUserName"
+            tools:visibility="visible" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvReviewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="8sp"
+            android:text="Dec 22, 2022"
+            android:textColor="@color/_9d9d9d"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUserName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvUserName"
+            tools:text="Dec 22, 2022" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSubject"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:drawableEnd="@drawable/star"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_vertical"
+            android:lineSpacingExtra="8sp"
+                android:text="Just as Expected  5"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivUserImage"
+            tools:text="&quot;Just as Expected&quot;  5" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDetailedReview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica"
+            android:lineSpacingExtra="8sp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="I have oily skin. This primer covered my pores well and
+gave me a perfect base for my make-up. I had no breakouts using this product. Go for it."
+            android:textColor="@color/_9d9d9d"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toBottomOf="@id/tvSubject"
+            tools:text="I have oily skin. This primer covered my pores well and
+gave me a perfect base for my make-up. I had no breakouts using this product. Go for it." />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHelpful"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="4sp"
+            android:text="0 people found this helful}"
+            android:textColor="@color/_9d9d9d"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvHelpfulCount"
+            tools:text="0 people found this helpful" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProductImage1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailedReview"
+            android:src="@drawable/group_902978" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivProductImage2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivProductImage1"
+            app:layout_constraintTop_toBottomOf="@id/tvDetailedReview"
+            android:src="@drawable/group_902978" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvHelpfulCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="4sp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="0 Helpful"
+            android:textSize="12sp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivProductImage1"
+            tools:background="@drawable/line_helpful_bg"
+            tools:text="0 helpful" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_4sdp"
+            android:background="@color/_9d9d9d"
+            app:layout_constraintTop_toBottomOf="@id/tvHelpfulCount" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

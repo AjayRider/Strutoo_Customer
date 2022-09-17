@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <ImageView
+            android:id="@+id/ivProduct"
+            android:layout_width="@dimen/_70sdp"
+            android:layout_height="@dimen/_70sdp"
+            android:src="@drawable/joyride"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:text="Hair Cut"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toTopOf="@+id/tvPrice"
+            app:layout_constraintStart_toEndOf="@+id/ivProduct"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/tvPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="SALENA"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivProduct"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductName" />
+
+        <TextView
+            android:id="@+id/tvPriceForOnePerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:hint="EGP 49.00 for 1 person"
+            android:text="@{model.desc2}"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_8ssp"
+            app:layout_constraintStart_toEndOf="@+id/ivProduct"
+            app:layout_constraintTop_toBottomOf="@+id/tvPrice" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:background="@drawable/sharp_stroke"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="@dimen/_4sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivMinus"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:onClick="@{(v)->model.onItemClick.onClick(v,model.adapterPosition,`minus`)}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_minus_icon" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:minWidth="@dimen/_20sdp"
+                android:text="2"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_14ssp" />
+
+            <!--            <androidx.appcompat.widget.AppCompatTextView-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="@{String.valueOf(model.intValue)}"-->
+            <!--                android:hint="0"-->
+            <!--                android:fontFamily="@font/bw_modelica"-->
+            <!--                android:gravity="center"-->
+            <!--                android:minWidth="@dimen/_20sdp"-->
+            <!--                android:textSize="14sp"/>-->
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivPlus"
+                android:layout_width="@dimen/_20sdp"
+                android:layout_height="@dimen/_20sdp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1"
+                android:onClick="@{(v)->model.onItemClick.onClick(v,model.adapterPosition,`plus`)}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_plus_icon" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:background="@color/_e6e6e6"
+            app:layout_constraintTop_toBottomOf="@id/ivProduct"
+
+            android:layout_marginTop="@dimen/_8sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

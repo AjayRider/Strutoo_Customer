@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.models.ChatModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:padding="@dimen/_2sdp"
+        android:background="@color/transparent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivImageChat"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/salon_image"
+            android:theme="@style/circleImage"
+            android:scaleType="centerCrop"
+            app:strokeWidth="1dp"
+            app:strokeColor="@color/white"
+
+            app:contentPadding="@dimen/_2sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.name}"
+            android:textSize="15sp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivImageChat"
+            app:layout_constraintEnd_toStartOf="@id/ivLike" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvDesignation"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.designation}"
+            android:textSize="13sp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/bw_modelica"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvName"
+            app:layout_constraintStart_toEndOf="@id/ivImageChat"
+            app:layout_constraintEnd_toStartOf="@id/ivLike" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvMessageArtist"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{model.messageByArtist}"
+            android:textSize="13sp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textColor="@color/white"
+            android:fontFamily="@font/bw_modelica"
+            app:layout_constraintTop_toBottomOf="@id/ivImageChat"
+            app:layout_constraintStart_toStartOf="@id/ivImageChat"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivLike"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_30sdp"
+            android:src="@drawable/heart_in_white"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

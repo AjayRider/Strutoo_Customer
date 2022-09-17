@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.strutoocustomer.customer.views.bookings.BookingsVM" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.bookings.Bookings">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbarBookings"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56sdp"
+            android:background="@color/black"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{vm::onClick}"
+                android:src="@drawable/ic_back_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="Bookings"
+                android:textAllCaps="true"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_30sdp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/ivBack"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintTop_toBottomOf="@id/clToolbarBookings"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="@dimen/_15sdp"
+                android:background="@color/white">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvBookingList"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    tools:itemCount="2"
+                    android:overScrollMode="never"
+                    setRecyclerAdapter="@{vm.bookingListAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:orientation="vertical"
+                    tools:listitem="@layout/item_layout_cart"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clPayment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:layout_marginBottom="@dimen/_15sdp"
+                    android:background="@drawable/ic_payment_summary_back"
+                    android:padding="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/rvBookingList">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvPaymentSummary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica_bold"
+                        android:text="@string/payment_summary"
+                        android:textColor="#1d1d1d"
+                        android:textStyle="bold"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRP"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Sub Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvMRPAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="EGP 201.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvPaymentSummary" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Discount"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRP" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDiscountAmount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="-EGP 24.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvMRPAmount" />
+
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCoupon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Coupon Discount"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvCouponCode"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="STRUTT27323"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvDiscountAmount" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTax"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Tax"
+                        android:visibility="gone"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCoupon" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTaxPerc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:text="0.25%"
+                        android:visibility="gone"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvCouponCode" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelivery"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:visibility="gone"
+                        android:text="Delivery Charges"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTax" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvDelCharges"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:visibility="gone"
+                        android:text="Free"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/tvTaxPerc" />
+
+                    <View
+                        android:id="@+id/vBar1"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/_1sdp"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:background="#eeeeee"
+                        app:layout_constraintEnd_toEndOf="@id/tvDelCharges"
+                        app:layout_constraintStart_toStartOf="@id/tvDelivery"
+                        app:layout_constraintTop_toBottomOf="@id/tvDelivery" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                       android:layout_marginBottom="@dimen/_18sdp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:text="Total"
+                        android:textColor="@color/_666666"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="@id/tvTax"
+                        app:layout_constraintTop_toBottomOf="@id/vBar1" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/tvTotalResult"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica_bold"
+
+                        android:text="EGP115.00"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_12sdp"
+                        app:layout_constraintTop_toTopOf="@id/tvTotal"
+                        app:layout_constraintBottom_toBottomOf="@id/tvTotal"
+                        app:layout_constraintEnd_toEndOf="@id/tvTaxPerc"
+                         />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvNote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text = "@string/note_long"
+                    android:fontFamily="@font/bw_modelica"
+                    android:textSize="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_5sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clPayment"/>
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/confirm_details"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:id="@+id/btnConfirmDetails"
+                    android:onClick="@{vm::onClick}"
+                    android:letterSpacing="0.0"
+                    android:padding="@dimen/_7sdp"
+                    android:textSize="@dimen/_12sdp"
+                    android:background="@drawable/search_stroke"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:textAllCaps="false"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginBottom="@dimen/_20sdp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

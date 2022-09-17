@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.product.services.ServicesViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btmsheet"
+        android:paddingHorizontal="@dimen/_20sdp">
+
+        <View
+            android:id="@+id/viewTop"
+            android:layout_width="@dimen/_60sdp"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/grey"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvScheduleService"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="Schedule Service"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewTop" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_close"
+            android:onClick=""
+            app:layout_constraintBottom_toBottomOf="@id/tvScheduleService"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tvScheduleService" />
+
+        <TextView
+            android:id="@+id/tvSelectPerson"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="SELECT PERSON"
+            android:textColor="@color/_949494"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/btnContinue"
+
+            app:layout_constraintTop_toBottomOf="@+id/tvScheduleService" />
+
+        <View
+            android:id="@+id/viewSelectPerson"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="#f1f1f1"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectPerson"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSelectPerson"
+            app:layout_constraintTop_toTopOf="@id/tvSelectPerson" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvPerson"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectPerson"
+            tools:itemCount="5"
+            tools:listitem="@layout/item_inner_bottom_schedule" />
+
+
+        <TextView
+            android:id="@+id/tvSelectDates"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="SELECT DATES"
+            android:textColor="@color/_949494"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/btnContinue"
+            app:layout_constraintTop_toBottomOf="@+id/rvPerson" />
+
+        <View
+            android:id="@+id/viewSelectDates"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="#f1f1f1"
+            app:layout_constraintBottom_toBottomOf="@id/tvSelectDates"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvSelectDates"
+            app:layout_constraintTop_toTopOf="@id/tvSelectDates" />
+
+        <TextView
+            android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_8sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="MAY"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_7sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelectDates" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvAtWhatTime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="@+id/tvSelectDates"
+            app:layout_constraintStart_toStartOf="@+id/tvSelectDates"
+            app:layout_constraintTop_toBottomOf="@+id/tvMonth"
+            tools:itemCount="5"
+            tools:listitem="@layout/bottomsheet_singleitem" />
+
+
+        <TextView
+            android:id="@+id/tvAtWhatTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="AT WHAT  TIME"
+            android:textColor="@color/_949494"
+            android:textSize="10sp"
+            app:layout_constraintStart_toStartOf="@id/btnContinue"
+            app:layout_constraintTop_toBottomOf="@+id/rvAtWhatTime" />
+
+
+        <View
+            android:id="@+id/viewAtWhatTime"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:background="#f1f1f1"
+            app:layout_constraintBottom_toBottomOf="@id/tvAtWhatTime"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tvAtWhatTime"
+            app:layout_constraintTop_toTopOf="@id/tvAtWhatTime" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvDay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvAtWhatTime"
+            tools:listitem="@layout/item_layout_day_singleitem" />
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@drawable/search_stroke"
+            android:backgroundTint="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:padding="@dimen/_7sdp"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:letterSpacing="0.0"
+            android:textSize="@dimen/_12sdp"
+            android:textColor="@color/_ffffff"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvDay" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

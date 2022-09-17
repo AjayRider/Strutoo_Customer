@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:id="@+id/layoutBooking"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:background="@drawable/edit_text_background"
+        android:padding="@dimen/_5sdp">
+
+        <ImageView
+            android:id="@+id/ivImage"
+            android:layout_width="@dimen/_80sdp"
+            android:layout_height="@dimen/_80sdp"
+            android:src="@drawable/mask_group_8"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/ivImage"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvBooking"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="Booking No."
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="normal"
+                android:letterSpacing="0.0"
+                app:layout_constraintBottom_toTopOf="@+id/tvOrderId"
+                app:layout_constraintEnd_toStartOf="@+id/tvService"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:letterSpacing="0.0"
+                android:text="#3242333"
+                android:id="@+id/tvOrderId"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_14ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                app:layout_constraintEnd_toEndOf="@+id/tvBooking"
+                app:layout_constraintStart_toStartOf="@id/tvBooking"
+                app:layout_constraintTop_toBottomOf="@+id/tvBooking" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="25 May, 2022 "
+                android:letterSpacing="0.0"
+                android:id="@+id/tvDate"
+                android:textColor="@color/_9d9d9d"
+                android:textSize="@dimen/_9ssp"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderId"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/tvBooking"
+                app:layout_constraintStart_toStartOf="@id/tvBooking"/>
+
+            <TextView
+                android:id="@+id/tvService"
+                android:layout_width="wrap_content"
+                android:letterSpacing="0.0"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:gravity="center"
+                android:text="Services"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toStartOf="@+id/tvTotal"
+                app:layout_constraintStart_toEndOf="@+id/tvBooking"
+                app:layout_constraintTop_toTopOf="@id/tvBooking" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:letterSpacing="0.0"
+                android:text="02"
+                android:gravity="center"
+                android:id="@+id/tvServiceCount"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintEnd_toEndOf="@+id/tvService"
+                app:layout_constraintStart_toStartOf="@id/tvService"
+                app:layout_constraintTop_toTopOf="@+id/tvOrderId"
+                app:layout_constraintBottom_toBottomOf="@+id/tvOrderId"/>
+
+            <TextView
+                android:id="@+id/tvTotal"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:gravity="end"
+                android:text="Total"
+                android:letterSpacing="0.0"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_9ssp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvService"
+                app:layout_constraintTop_toTopOf="@id/tvBooking" />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="EGP 1250"
+                android:gravity="end"
+                android:letterSpacing="-0.05"
+                android:id="@+id/tvCost"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_10ssp"
+                app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                app:layout_constraintEnd_toEndOf="@+id/tvTotal"
+                app:layout_constraintStart_toStartOf="@id/tvTotal"
+                app:layout_constraintTop_toBottomOf="@+id/tvBooking" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="@{model.isPast?`COMPLETED`:`On-going`}"
+                android:gravity="end"
+                android:letterSpacing="0.0"
+                android:singleLine="true"
+                android:id="@+id/tvStatus"
+                android:textColor="@{model.isPast ? @color/_06cb63 : @color/_4fe8f2 }"
+                android:textSize="@dimen/_8ssp"
+                app:layout_constraintTop_toBottomOf="@+id/tvOrderId"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/tvTotal"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="black2">#000000</color>
+    <color name="lightBlack">#2a2a2a</color>
+    <color name="grey">#919191</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="app_color">#FF000000</color>
+    <color name="torch_red">#f90052</color>
+    <color name="green">#00f474</color>
+    <color name="_72f585">#72f585</color>
+    <color name="_e6ce2e">#e6ce2e</color>
+    <color name="_9d9d9d">#9d9d9d</color>
+    <color name="_f2feff">#f2feff</color>
+    <color name="_e6e6e6">#e6e6e6</color>
+    <color name="_e1e1e1">#e1e1e1</color>
+    <color name="_1d1d1d">#1d1d1d</color>
+    <color name="_949494">#949494</color>
+    <color name="Cyan">#00ffff</color>
+    <color name="yellow">#f2bc32</color>
+    <color name="_666666">#666666</color>
+    <color name="_1B666666">#1B666666</color>
+    <color name="_56e9f3">#56e9f3</color>
+    <color name="_06cb63">#06cb63</color>
+    <color name="_4fe8f2">#4fe8f2</color>
+    <color name="_ffffff">#ffffff</color>
+    <color name="_6800f9">#6800f9</color>
+    <color name="_292d32">#292d32</color>
+    <color name="_010e1a">#010e1a</color>
+    <color name="_a7a7a7">#a7a7a7</color>
+    <color name="_111111">#111111</color>
+    <color name="_9fa3a8">#9fa3a8</color>
+    <color name="_f6f6f6">#f6f6f6</color>
+    <color name="purple">#9C27B0</color>
+    <color name="e5e5e5">#e5e5e5</color>
+    <color name="_272c3f">#272c3f</color>
+    <color name="_f8f8f8">#f8f8f8</color>
+    <color name="transparent">#00000000</color>
+    <color name="pink2">#f90052</color>
+    <color name="black_light_2">#949494</color>
+    <color name="_acb1c0">#acb1c0</color>
+    <color name="_222b45">#222b45</color>
+    <color name="they">#e8e8e8</color>
+
+    <color name="pink_fe1e68">#fe1e68</color>
+    <color name="grey_e2e2e2">#e2e2e2</color>
+
+
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="color_blue">#003F87</color>
+    <color name="color_home_bg">#9A979C</color>
+    <color name="color_favorite_bg">#444145</color>
+    <color name="color_chat_bg">#21FF06</color>
+    <color name="color_notification_bg">#80007F</color>
+    <color name="color_profile_bg">#0D5FFF</color>
+    <color name="_00f474">#00f474</color>
+    <color name="_f90052">#f90052</color>
+    <color name="_ababab">#ababab</color>
+    <color name="_f2bc32">#f2bc32</color>
+    <color name="_00ffff">#00ffff</color>
+    <color name="_a7893f">#a7893f</color>
+    <color name="_000000">#000000</color>
+    <color name="_e5e5e5">#e5e5e5</color>
+    <color name="_1a153b2e">#1a153b2e</color>
+    <color name="_dfdfdf">#dfdfdf</color>
+    <color name="_404040">#404040</color>
+
+</resources>

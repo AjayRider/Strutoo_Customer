@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <ImageView
+        android:id="@+id/ivBrag"
+        android:layout_width="match_parent"
+android:layout_marginVertical="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:scaleType="fitXY"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, ` `)}"
+        android:layout_height="wrap_content"
+        android:src="@drawable/group_902979">
+
+    </ImageView>
+</layout>

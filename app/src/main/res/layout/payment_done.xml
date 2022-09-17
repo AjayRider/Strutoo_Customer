@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.paymentdone.PaymentDoneVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/black"
+        tools:context=".customer.views.paymentdone.PaymentDone">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_placed_order"
+            android:id="@+id/ivConfirm"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/tvOrderPlaced"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Payment Done"
+            android:textStyle="normal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/tvOrderPlaced"
+            android:textSize="@dimen/_38ssp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/tvDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivConfirm"
+            android:fontFamily="@font/dharmagothice_regular"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Your payment done successfully"
+            android:textColor="@color/_e1e1e1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrderPlaced" />
+
+
+        <TextView
+            android:id="@+id/tvRate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@drawable/edit_text_background"
+            android:padding="@dimen/_15sdp"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:text="Rate Now"
+            android:onClick="@{model::onClick}"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:textColor="@color/_e1e1e1"
+            app:layout_constraintBottom_toTopOf="@+id/tvSkip"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvSkip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Skip"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/_e1e1e1"
+            android:layout_marginBottom="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

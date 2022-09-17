@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:background="#f6f6f6"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:padding="@dimen/_15sdp">
+
+        <ImageView
+            android:id="@+id/ivCard"
+            android:layout_width="@dimen/_17sdp"
+            android:layout_height="@dimen/_17sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/ic_home"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tvCardName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="Home"
+            android:letterSpacing="-0.03"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10ssp"
+            android:textStyle="bold"
+            android:layout_marginStart="@dimen/_10sdp"
+            app:layout_constraintStart_toEndOf="@+id/ivCard"
+            app:layout_constraintBottom_toTopOf="@+id/tvAddress"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="1786 Wheeler Bridge"
+            android:textSize="@dimen/_10ssp"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:textColor="@color/_9d9d9d"
+            app:layout_constraintStart_toEndOf="@+id/ivCard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvCardName" />
+
+        <ImageView
+            android:id="@+id/ivEdit"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_2sdp"
+            android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+            android:src="@drawable/ic_edit_address"
+            android:layout_marginRight="@dimen/_10sdp"
+            app:layout_constraintEnd_toStartOf="@+id/ivDelete"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivDelete"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:padding="@dimen/_2sdp"
+            android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+            android:src="@drawable/ic_delete_red"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

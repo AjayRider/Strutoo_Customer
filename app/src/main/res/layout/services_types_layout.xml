@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.models.ServicesTypes" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/llWomenHairCut"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, ``)}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:gravity="center_vertical"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textAllCaps="true"
+                android:text="@{model.servicesTypesName}"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="12sp"
+                android:textStyle="normal"
+                tools:text="@string/women_s_haircut" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:rotation="@{model.isSelected?90:0}"
+                android:src="@drawable/ic_navigate_next" />
+        </LinearLayout>
+
+        <View
+            android:id="@+id/hairCutView"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/_e6e6e6"
+            app:layout_constraintTop_toBottomOf="@id/llWomenHairCut" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWomenHairColor"
+            setRecyclerAdapter="@{model.hairCutAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:visibility="@{model.isSelected?View.VISIBLE:View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llWomenHairCut"
+            tools:itemCount="1"
+            tools:listitem="@layout/women_haircuts" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

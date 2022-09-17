@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.signup.SignUpVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_sign_in"
+        android:paddingHorizontal="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
+        tools:context=".customer.views.signup.SignUp">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.20" />
+
+        <TextView
+            android:id="@+id/tvWelcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/dharmagothice_regular"
+            android:letterSpacing="0.01"
+            android:text="Welcome User,"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_30sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline"
+
+            />
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:letterSpacing="0.01"
+            tools:hint="Hello"
+            android:text="@{model.isPhone?`Please enter your phone number to continue `: `Please enter your email to continue`}"
+            android:textColor="@color/_666666"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc">
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_stroke"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:hint="Email address"
+                android:letterSpacing="0.01"
+                android:maxLines="1"
+                android:paddingHorizontal="@dimen/_10sdp"
+                android:paddingVertical="@dimen/_10sdp"
+                android:textSize="@dimen/_10sdp"
+                android:textStyle="normal"
+                android:visibility="@{model.isPhone?View.GONE:View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_stroke"
+                android:visibility="@{model.isPhone?View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/countryPicker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccp_showFlag="false"
+                    app:ccp_showNameCode="false"
+                    app:ccp_textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/etPhoneNo"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/etPhoneNo"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_stroke"
+                    android:fontFamily="@font/product_sans_reg"
+                    android:hint="Enter phone number"
+                    android:inputType="number"
+                    android:maxLines="1"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:textColor="@color/_111111"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/countryPicker"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <Button
+            android:id="@+id/btnContinue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_17sdp"
+            android:background="@drawable/search_stroke"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:letterSpacing="-0.0"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_7sdp"
+            android:text="Continue"
+            android:textAllCaps="false"
+            android:textColor="@color/_ffffff"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clType" />
+
+        <TextView
+            android:id="@+id/tvContinuePhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_13sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:onClick="@{model::onClick}"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="@{model.isPhone?`Continue With Email` : `Continue With Phone`}"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_12sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnContinue"
+            tools:text="Continue With Email" />
+
+
+        <TextView
+            android:id="@+id/tvAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_30sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="Already have an account?"
+            android:textColor="@color/_666666"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvSignIn"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvSignIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:onClick="@{model::onClick}"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text=" Sign In"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvAccount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvAccount"
+            app:layout_constraintTop_toTopOf="@+id/tvAccount" />
+
+
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

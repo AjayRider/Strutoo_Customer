@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/_1B666666"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_8sdp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/group_902978"
+            android:id="@+id/ivArrival"
+            android:scaleType="fitXY"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Handaiyan Creamy Lipshade"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textSize="@dimen/_10ssp"
+            android:id="@+id/tvArrivalDesc"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_5ssp"
+            android:layout_marginHorizontal="@dimen/_10ssp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivArrival"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EGP 67.00"
+            android:textColor="@color/black"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginHorizontal="@dimen/_10ssp"
+            app:layout_constraintTop_toBottomOf="@+id/tvArrivalDesc"
+            android:textStyle="bold"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

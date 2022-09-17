@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clPromo"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:layout_marginTop="@dimen/_7sdp"
+        android:layout_marginHorizontal="@dimen/_10sdp"
+        android:background="@drawable/ic_coupon_bg"
+        android:padding="@dimen/_5sdp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCouponName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:text="Enjoy an additional 10% off"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCouponDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="On your 1st order from Strutto app!"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            app:layout_constraintStart_toStartOf="@+id/tvCouponName"
+            app:layout_constraintTop_toBottomOf="@+id/tvCouponName" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSaveCoupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/save"
+            android:textColor="@color/_56e9f3"
+            android:textSize="@dimen/_12sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvCouponDesc" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCouponPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_3sdp"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:text="EGP 26.00"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/tvSaveCoupon"
+            app:layout_constraintStart_toStartOf="@id/tvSaveCoupon"
+            app:layout_constraintTop_toBottomOf="@+id/tvSaveCoupon" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="STRUTT27323"
+            android:textColor="@color/_56e9f3"
+            android:textSize="@dimen/_13sdp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tvCouponDesc"
+            app:layout_constraintTop_toBottomOf="@+id/tvCouponDesc" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:background="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:paddingHorizontal="@dimen/_20sdp"
+            android:paddingVertical="@dimen/_5sdp"
+            android:text="Apply"
+            android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_8sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/viewCoupon"
+            app:layout_constraintTop_toTopOf="@+id/tvCode" />
+
+
+        <View
+            android:id="@+id/viewCoupon"
+            android:layout_width="1dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@color/_1B666666"
+            app:layout_constraintBottom_toBottomOf="@+id/tvActive"
+            app:layout_constraintEnd_toStartOf="@+id/tvSaveCoupon"
+            app:layout_constraintTop_toTopOf="@+id/tvCouponName" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

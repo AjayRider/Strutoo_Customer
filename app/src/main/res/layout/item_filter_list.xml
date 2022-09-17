@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View"/>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivTickFilter"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:padding="@dimen/_3sdp"
+            android:src="@drawable/ic_tick"
+            android:visibility="@{model.filterType == 11 ? View.GONE : View.VISIBLE}"
+            app:layout_constraintBottom_toTopOf="@id/viewBelowFilters"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImage" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivColorFilter"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:padding="@dimen/_2sdp"
+            android:src="@drawable/mask_group_2859"
+            android:visibility="@{model.filterType == 6 ?View.VISIBLE: View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTickFilter"
+            app:layout_constraintStart_toEndOf="@id/ivTickFilter"
+            app:layout_constraintTop_toTopOf="@id/ivTickFilter"
+            app:shapeAppearanceOverlay="@style/circleImage" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@{model.filterType == 1? @drawable/star : null}"
+            android:drawablePadding="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:paddingVertical="@dimen/_3sdp"
+            android:text="@{model.name}"
+            android:textColor="@color/_111111"
+            android:textSize="@dimen/_10sdp"
+            android:textStyle="normal"
+            app:layout_constraintBottom_toBottomOf="@+id/ivColorFilter"
+            app:layout_constraintStart_toEndOf="@+id/ivColorFilter"
+            app:layout_constraintTop_toTopOf="@+id/ivColorFilter" />
+
+
+        <View
+            android:id="@+id/viewBelowFilters"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+
+            android:layout_marginVertical="@dimen/_10sdp"
+            android:background="@color/_9d9d9d"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivColorFilter" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

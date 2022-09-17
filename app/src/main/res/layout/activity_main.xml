@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.MainVM" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        tools:openDrawer="start">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <fragment
+                android:id="@+id/fragmentMain"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toTopOf="@id/bottomNav"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:navGraph="@navigation/nav_graph" />
+
+            <com.strutoocustomer.customer.bottombar.SSCustomBottomNavigation
+                android:id="@+id/bottomNav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:ss_backgroundBottomColor="#ffffff"
+                app:ss_circleColor="@color/_1d1d1d"
+                app:ss_countBackgroundColor="@color/_1d1d1d"
+                app:ss_countTextColor="@color/white"
+                app:ss_countTypeface="fonts/graphik_semibold.ttf"
+                app:ss_defaultIconColor="@color/black"
+                app:ss_iconTextColor="@color/black"
+                app:ss_iconTextSize="12sp"
+                app:ss_iconTextTypeface="fonts/graphik_semibold.ttf"
+                app:ss_rippleColor="#2f424242"
+                app:ss_selectedIconColor="@color/_1d1d1d"
+                app:ss_selectedIconTextColor="@color/_1d1d1d"
+                app:ss_shadowColor="#1f212121"
+                app:ss_waveHeight="1" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="@dimen/_220sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@color/white"
+            android:gravity="start"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/clToolbarMenuBar"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_56sdp"
+                    android:background="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/ivBackButtonPromo"
+                        android:layout_width="@dimen/_30sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:layout_margin="@dimen/_10sdp"
+                        android:padding="@dimen/_5sdp"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_icon"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/tvLogo"
+                        android:layout_width="@dimen/_35sdp"
+                        android:layout_height="@dimen/_35sdp"
+                        android:scaleType="fitXY"
+                        android:visibility="gone"
+                        android:src="@drawable/ic_logo"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/tvNameApp"
+                        app:layout_constraintHorizontal_chainStyle="packed"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/tvNameApp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:layout_marginBottom="@dimen/_10sdp"
+                        android:fontFamily="@font/dharmagothic_r"
+                        android:letterSpacing="0.01"
+                        android:text="STRUTOO"
+                        android:visibility="gone"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_24ssp"
+                        android:textStyle="normal"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="@dimen/_100sdp"
+                        android:layout_height="@dimen/_30sdp"
+                        android:src="@drawable/logo_text_only"
+                        android:layout_margin="@dimen/_7sdp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvShopAllCategory"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_shop_all_category"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Shop all categories"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clToolbarMenuBar"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvShopAllCategory" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvShopByBrands"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_shop_by_brands"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Shop by Brands"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvShopAllCategory"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvShopByBrands" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvStudioDrawer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_studio_drawer"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="STUDIO"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvShopByBrands"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvStudioDrawer" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBeautyServices"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_beauty"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Beauty Services"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvStudioDrawer"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:id="@+id/viewBelowCoupon"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvBeautyServices" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvBragDrawer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_brag"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="BRAG - The Luxury Store"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewBelowCoupon"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:id="@+id/viewBelowCoupons"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvBragDrawer" />
+
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvOffersDrawer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_offer_black"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:gravity="start"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Offers"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10ssp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewBelowCoupons"
+                    app:textAllCaps="true" />
+
+                <View
+                    android:id="@+id/vBar4dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvOffersDrawer" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvContactUsDrawer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_contact_us"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Contact Us"
+                    android:textAllCaps="true"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/vBar4dp" />
+
+
+                <View
+                    android:id="@+id/viewContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvContactUsDrawer" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvCustomerService"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/ic_customer_service"
+                    android:drawablePadding="@dimen/_8sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    app:textAllCaps="true"
+                    android:text="Customer Service"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintTop_toBottomOf="@id/viewContact" />
+
+
+                <View
+                    android:id="@+id/viewCustomer"
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintTop_toBottomOf="@id/tvCustomerService" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTermsPrivacy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:onClick="@{model::onClick}"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    app:textAllCaps="true"
+                    android:text="Terms &amp; Privacy"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/viewCustomer" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvAboutStrutoo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:onClick="@{model::onClick}"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="About STRUTOO"
+                    app:textAllCaps="true"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTermsPrivacy" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvAboutStrutoo">
+
+                    <ImageView
+                        android:id="@+id/ivDrawerFb"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_fb" />
+
+                    <ImageView
+                        android:id="@+id/ivDrawerInsta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_instagram" />
+
+                    <ImageView
+                        android:id="@+id/ivDrawerYoutube"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_youtube" />
+
+                    <ImageView
+                        android:id="@+id/tvTiktok"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_tiktok" />
+
+                    <ImageView
+                        android:id="@+id/tvLinkedIn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:onClick="@{model::onClick}"
+                        android:src="@drawable/ic_drawer_linked_in" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>

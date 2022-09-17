@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.profileviewdetails.ProfileViewDetailsVM" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".customer.views.profileviewdetails.ProfileViewDetails">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_round_5_light_grey"
+                android:elevation="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivbBannerMakeArtist"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_200sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_banner_artist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tvFollow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_marginBottom="@dimen/_40sdp"
+                    android:background="@drawable/live_pink_round_corner"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="@string/follow"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/rounded_solid"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="@string/book"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollow"
+                    app:layout_constraintEnd_toStartOf="@id/tvFollow"
+                    app:layout_constraintTop_toTopOf="@id/tvFollow" />
+
+                <TextView
+                    android:id="@+id/tvArtistName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Jacqueline"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14sdp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvBook" />
+
+                <TextView
+                    android:id="@+id/tvArtistTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Makeup Artist"
+                    android:textColor="#ababab"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintStart_toStartOf="@id/tvArtistName"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtistName" />
+
+                <TextView
+                    android:id="@+id/tvFollowerCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="298"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toStartOf="@id/tvArtistTitle"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtistTitle" />
+
+                <TextView
+                    android:id="@+id/tvFollowers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Followers"
+                    android:textColor="#88cccccc"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvFollowerCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewFollower"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowers"
+                    app:layout_constraintStart_toEndOf="@id/tvFollowers"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowers" />
+
+
+                <TextView
+                    android:id="@+id/tvViewsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="3,374"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewFollower"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtistTitle" />
+
+                <TextView
+                    android:id="@+id/tvViews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Views"
+                    android:textColor="#88cccccc"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvViewsCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewViews"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvViews"
+                    app:layout_constraintStart_toEndOf="@id/tvViews"
+                    app:layout_constraintTop_toTopOf="@id/tvViews" />
+
+
+                <TextView
+                    android:id="@+id/tvLikesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="3,145"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewViews"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtistTitle" />
+
+                <TextView
+                    android:id="@+id/tvLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Likes"
+                    android:textColor="#88cccccc"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvLikesCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewLikes"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLikes"
+                    app:layout_constraintStart_toEndOf="@id/tvLikes"
+                    app:layout_constraintTop_toTopOf="@id/tvLikes" />
+
+                <TextView
+                    android:id="@+id/tvLooksCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="16"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewLikes"
+                    app:layout_constraintTop_toBottomOf="@id/tvArtistTitle" />
+
+                <TextView
+                    android:id="@+id/tvLooks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Looks"
+                    android:textColor="#88cccccc"
+                    android:textSize="@dimen/_10sdp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvLooksCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="Style Squad"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+
+            <TextView
+                android:id="@+id/tvBelieve"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="I believe that style is eternal!"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvStyle" />
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tbLayout"
+                spaceEnd="@{10}"
+                spaceStart="@{10}"
+                tabSelectListener="@{model.tabListener}"
+                app:tabTextAppearance="@style/tab_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBelieve"
+                app:tabBackground="@drawable/tab_selector_bg"
+                app:tabGravity="fill"
+                app:tabIndicator="@null"
+                tools:visibility="invisible"
+                app:tabMode="fixed"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Shop" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="By look" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Learn" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tbLayoutInfluencer"
+                spaceEnd="@{10}"
+                spaceStart="@{10}"
+                tabSelectListener="@{model.tabListenerInfluencer}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_8sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="gone"
+                app:tabTextAppearance="@style/tab_text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tvBelieve"
+                app:tabBackground="@drawable/tab_selector_bg"
+                app:tabGravity="fill"
+                app:tabIndicator="@null"
+                app:tabMode="fixed"
+                tools:visibility="visible"
+                app:tabSelectedTextColor="@color/white"
+                app:tabTextColor="@color/black">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SHOP" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="WATCH" />
+
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <!--  Shop Layout  -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:visibility="@{model.type.equalsIgnoreCase(`shop`)?View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbLayout"
+                tools:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTotalProducts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="6 Products"
+                    android:textColor="@color/app_color"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/filterList"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:src="@{model.isLinear?@drawable/filter_list_selected:@drawable/filter_list}"                    app:layout_constraintBottom_toBottomOf="@+id/tvTotalProducts"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/filterGrid"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/filterGrid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_20sdp"
+                    android:src="@{model.isLinear?@drawable/filter_grid_unselect:@drawable/filter_grid}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvAllProducts"
+                    setRecyclerAdapter="@{model.allProductsAdapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    android:orientation="vertical"
+                    android:overScrollMode="never"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvTotalProducts"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/item_product_manage" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- By LooK -->
+            <androidx.recyclerview.widget.RecyclerView
+                setRecyclerAdapter="@{model.byLookAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="@{model.type.equalsIgnoreCase(`By look`)?View.VISIBLE:View.GONE}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbLayout"
+                tools:itemCount="1"
+                tools:listitem="@layout/item_layout_by_look"
+                tools:visibility="gone" />
+
+            <!--    Learn        -->
+            <androidx.recyclerview.widget.RecyclerView
+                setRecyclerAdapter="@{model.learnAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:nestedScrollingEnabled="false"
+                android:orientation="vertical"
+                android:visibility="@{model.type.equalsIgnoreCase(`learn`)?View.VISIBLE : model.type.equalsIgnoreCase(`watch`) ? View.VISIBLE :View.GONE}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tbLayout"
+                tools:listitem="@layout/item_layout_learn_video"
+                tools:visibility="invisible" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

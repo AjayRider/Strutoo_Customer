@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvSalon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_8sdp"
+        android:layout_marginBottom="@dimen/_8sdp"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, ` `)}"
+        android:shadowColor="@color/_f6f6f6"
+        app:cardElevation="@dimen/_5sdp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp">
+
+            <ImageView
+                android:id="@+id/ivSalon"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/_120sdp"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/pexels_david_geib_3268732"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSalonName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica_bold"
+                android:text="Curlz Unisex Salon"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/ivSalon"
+
+                app:layout_constraintTop_toBottomOf="@+id/ivSalon" />
+
+            <TextView
+                android:id="@+id/tvSalonLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/bw_modelica"
+                android:text="145 Stafford Rd, Wallington 13732 "
+                android:textColor="@color/_010e1a"
+
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/ivSalon"
+                app:layout_constraintTop_toBottomOf="@+id/tvSalonName" />
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/rating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+
+                android:numStars="5"
+                android:progressTint="@color/_f2bc32"
+                android:rating="5"
+                android:stepSize="1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/ivSalon"
+                app:layout_constraintTop_toBottomOf="@+id/tvSalonLocation" />
+
+            <TextView
+                android:id="@+id/tvRatingCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:fontFamily="@font/product_sans_reg"
+                android:text="5.0"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/rating"
+                app:layout_constraintStart_toEndOf="@+id/rating"
+                app:layout_constraintTop_toTopOf="@+id/rating" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="(0 Reviews)"
+                android:textSize="@dimen/_6sdp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="@+id/rating"
+                app:layout_constraintStart_toEndOf="@+id/tvRatingCount"
+                app:layout_constraintTop_toTopOf="@+id/rating" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

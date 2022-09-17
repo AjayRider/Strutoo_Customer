@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.schedule.ScheduleVM" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        tools:context=".customer.views.schedule.Schedule">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_10sdp"
+                android:background="@drawable/background_round_5_light_grey"
+                android:elevation="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_10sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivbBannerMakeArtist"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_180sdp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_banner_artist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <TextView
+                    android:id="@+id/tvFollow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@drawable/live_pink_round_corner"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="Follow"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvArtistTitle"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/tvArtistName" />
+
+                <TextView
+                    android:id="@+id/tvBook"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:background="@color/grey"
+                    android:paddingHorizontal="@dimen/_15sdp"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:text="Book"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollow"
+                    app:layout_constraintEnd_toStartOf="@id/tvFollow"
+                    app:layout_constraintTop_toTopOf="@id/tvFollow" />
+
+                <TextView
+                    android:id="@+id/tvArtistName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Aswathi Balakrishan"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvArtistTitle"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvArtistTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_20sdp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Influencer"
+                    android:textColor="@color/_ababab"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toTopOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toStartOf="@id/tvArtistName" />
+
+                <TextView
+                    android:id="@+id/tvFollowerCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="298"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toStartOf="@id/tvArtistTitle" />
+
+                <TextView
+                    android:id="@+id/tvFollowers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Followers"
+                    android:textColor="#88cccccc"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvFollowerCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewFollower"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowers"
+                    app:layout_constraintStart_toEndOf="@id/tvFollowers"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowers" />
+
+
+                <TextView
+                    android:id="@+id/tvViewsCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="3,374"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewFollower" />
+
+                <TextView
+                    android:id="@+id/tvViews"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Views"
+                    android:textColor="#88cccccc"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvViewsCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewViews"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvViews"
+                    app:layout_constraintStart_toEndOf="@id/tvViews"
+                    app:layout_constraintTop_toTopOf="@id/tvViews" />
+
+
+                <TextView
+                    android:id="@+id/tvLikesCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="3,145"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewViews" />
+
+                <TextView
+                    android:id="@+id/tvLikes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Likes"
+                    android:textColor="#88cccccc"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvLikesCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+
+                <View
+                    android:id="@+id/viewLikes"
+                    android:layout_width="3dp"
+                    android:layout_height="3dp"
+                    android:layout_marginStart="5dp"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toBottomOf="@id/tvLikes"
+                    app:layout_constraintStart_toEndOf="@id/tvLikes"
+                    app:layout_constraintTop_toTopOf="@id/tvLikes" />
+
+                <TextView
+                    android:id="@+id/tvLooksCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginBottom="@dimen/_10ssp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="16"
+                    android:textColor="@color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@id/ivbBannerMakeArtist"
+                    app:layout_constraintStart_toEndOf="@id/viewLikes" />
+
+                <TextView
+                    android:id="@+id/tvLooks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="Looks"
+                    android:textColor="#88cccccc"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@id/tvFollowerCount"
+                    app:layout_constraintStart_toEndOf="@id/tvLooksCount"
+                    app:layout_constraintTop_toTopOf="@id/tvFollowerCount" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/tvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10ssp"
+                android:fontFamily="@font/bw_modelica_bold"
+                android:text="Extra 50% Off!\nCosmetics, Perfumes &amp; Beauty Products"
+                android:textColor="@color/_111111"
+                android:textSize="@dimen/_14ssp"
+                android:letterSpacing="-0.05"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/clHeader" />
+
+            <TextView
+                android:id="@+id/tvSubHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_5ssp"
+                android:fontFamily="@font/bw_modelica"
+                android:letterSpacing="-0.05"
+                android:text="Your customised Vedix products are rich in over 40 natural herbs like Bhringraj, Aloe Vera, Amla, Onion, etc which help provide holistic care to your Face. Your customised Vedix products are rich in over 40 natural herbs like Bhringraj, Aloe Vera, Amla, Onion, etc which help provide holistic care to your Face."
+                android:textColor="@color/_9d9d9d"
+                android:textSize="@dimen/_10ssp"
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvHeader" />
+
+
+            <TextView
+                android:id="@+id/tvRecommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_10ssp"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:text="Recommended Products"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_14ssp"
+                android:textStyle="normal"
+                android:letterSpacing="-0.05"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSubHeader" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecommend"
+                setRecyclerAdapter="@{model.recommendAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_10ssp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecommend"
+                tools:listitem="@layout/item_layout_seller" />
+
+            <LinearLayout
+                android:id="@+id/layoutPay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_20sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:onClick="@{model::onClick}"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvRecommend">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_weight="1"
+                    android:elevation="@dimen/_5sdp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#f6f6f6"
+                        android:elevation="@dimen/_5sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:gravity="center_vertical"
+                        android:paddingStart="@dimen/_10ssp"
+                        android:text="@string/start_in"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/_10ssp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_45sdp"
+                    android:layout_weight="1"
+                    android:background="#ff4180"
+                    android:drawableStart="@drawable/ic_bell"
+                    android:fontFamily="@font/bw_modelica"
+                    android:gravity="center"
+                    android:paddingHorizontal="@dimen/_20sdp"
+                    android:text="Notify me"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_14ssp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </ScrollView>
+</layout>

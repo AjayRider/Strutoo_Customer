@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:title="IND"
+        android:id="@+id/IND"
+        android:icon="@drawable/flag_india"/>
+
+    <item
+        android:title="EGPT"
+        android:id="@+id/EGP"
+        android:icon="@drawable/flag_egypt"/>
+
+</menu>

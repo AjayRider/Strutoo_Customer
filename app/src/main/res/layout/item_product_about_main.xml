@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivTitleLogo"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="@dimen/_25sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:src="@{model.drawable}"
+            android:padding="@dimen/_5sdp"
+            android:elevation="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="@{model.text}"
+            android:textAllCaps="true"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivTitleLogo"
+            app:layout_constraintStart_toEndOf="@+id/ivTitleLogo"
+            app:layout_constraintTop_toTopOf="@+id/ivTitleLogo" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivArrowBenifit"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="@dimen/_15sdp"
+            android:layout_margin="@dimen/_10sdp"
+            android:backgroundTint="@color/_9d9d9d"
+            android:src="@drawable/ic_navigate_next"
+            app:layout_constraintBottom_toBottomOf="@id/ivTitleLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/ivTitleLogo" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cLayoutType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_15sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivArrowBenifit">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvInnerProduct"
+                setRecyclerAdapter="@{model.childAdapter}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="@{model.type.equalsIgnoreCase(`Benefits`)?View.VISIBLE:View.GONE ,default=`gone`}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_inner_product_details" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="@{model.type.equalsIgnoreCase(`product`)?View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="SKU number"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="00422001"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Brand"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Sugar"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Category"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_12sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Cosmetics"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                         />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Sub Category"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Face"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Weight"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="500 gm"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Size"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="7.5 ml"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                    />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Type"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp"
+                       />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Primer"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Color"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp"
+                       />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Cream"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                   />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Expiry"
+                        android:textColor="@color/_666666"
+                        android:textSize="@dimen/_11sdp"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/bw_modelica_medium"
+                        android:gravity="end"
+                        android:text="Dec 02, 2023"
+                        android:textColor="@color/_1d1d1d"
+                        android:textSize="@dimen/_11sdp"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{model.desc}"
+                android:visibility="@{model.type.equalsIgnoreCase(`about`)?View.VISIBLE:View.GONE,default=gone}"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/bw_modelica"
+                android:textColor="@color/_111111"
+                android:textSize="@dimen/_9sdp"
+                android:lineSpacingExtra="@dimen/_2sdp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.type.equalsIgnoreCase(`rate`)?View.VISIBLE:View.GONE,default=gone}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvRate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    setRecyclerAdapter="@{model.childSecondAdapter}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/edit_text_black"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/_10sdp"
+                    android:text="Add Your Reviews"
+                    android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+                    android:textColor="@color/_111111"
+                    android:textSize="@dimen/_10ssp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:id="@+id/tvAddReview"
+                    app:layout_constraintTop_toBottomOf="@+id/rvRate" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clLayoutSeller"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="@{model.type.equalsIgnoreCase(`seller`)?View.VISIBLE:View.GONE,default=gone}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RatingBar
+                    android:id="@+id/rating"
+                    style="@style/Widget.AppCompat.RatingBar.Small"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:rating="4"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:text="4.3"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_10ssp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toBottomOf="@id/rating"
+                    app:layout_constraintStart_toEndOf="@+id/rating"
+                    app:layout_constraintTop_toTopOf="@+id/rating" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/bw_modelica"
+                    android:text="SUGAR says that it can be used wet or dry, I used it with a wet puff provided in it and Oh My God it did not apply well. It looked patchy even on my oily skin. Applying it wet is not an good idea according to me"
+                    android:textColor="@color/_111111"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:textSize="@dimen/_9sdp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rating" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/viewBelowRvBenefits"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_1sdp"
+            android:layout_marginVertical="@dimen/_5sdp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cLayoutType" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

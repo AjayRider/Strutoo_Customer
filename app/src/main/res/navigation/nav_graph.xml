@@ -1,0 +1,710 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/strutoo_customer"
+    app:startDestination="@id/splash">
+
+    <fragment
+        android:id="@+id/splash"
+        android:name="com.strutoocustomer.customer.views.splash.Splash"
+        android:label="Splash"
+        tools:layout="@layout/splash">
+        <action
+            android:id="@+id/action_splash_to_shop"
+            app:destination="@id/walkThroughShop"
+            app:popUpTo="@id/splash"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/walkThroughShop"
+        android:name="com.strutoocustomer.customer.views.walkthrough.shop.WalkThroughShop"
+        android:label="WalkThroughShop"
+        tools:layout="@layout/walk_through_shop">
+        <action
+            android:id="@+id/action_shop_to_book"
+            app:destination="@id/walkThroughBook" />
+        <action
+            android:id="@+id/walkThroughShopToSignUp"
+            app:destination="@id/signUp"
+            app:popUpTo="@id/walkThroughShop"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/walkThroughBook"
+        android:name="com.strutoocustomer.customer.views.walkthrough.book.WalkThroughBook"
+        android:label="WalkThroughBook"
+        tools:layout="@layout/walk_through_book">
+        <action
+            android:id="@+id/action_book_to_watch"
+            app:destination="@id/watch" />
+        <action
+            android:id="@+id/walkThroughBookToSignUp"
+            app:destination="@id/signUp"
+            app:popUpTo="@id/walkThroughBook"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/watch"
+        android:name="com.strutoocustomer.customer.views.walkthrough.watch.Watch"
+        android:label="Watch"
+        tools:layout="@layout/watch">
+        <action
+            android:id="@+id/watchToSignUp"
+            app:destination="@id/signUp"
+            app:popUpTo="@id/watch"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/signIn"
+        android:name="com.strutoocustomer.customer.views.singin.SignIn"
+        android:label="SignIn"
+        tools:layout="@layout/sign_in">
+        <action
+            android:id="@+id/action_signIn_to_signUp"
+            app:destination="@id/signUp"
+            app:popUpTo="@id/signUp"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signIn_to_forgot"
+            app:destination="@id/forgot" />
+        <action
+            android:id="@+id/action_signIn_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/signIn"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUp"
+        android:name="com.strutoocustomer.customer.views.signup.SignUp"
+        android:label="SignUp"
+        tools:layout="@layout/sign_up">
+        <action
+            android:id="@+id/action_signUp_to_signIn"
+            app:destination="@id/signIn" />
+        <action
+            android:id="@+id/action_signUp_to_otpVerify"
+            app:destination="@id/otpVerify" />
+    </fragment>
+    <fragment
+        android:id="@+id/forgot"
+        android:name="com.strutoocustomer.customer.views.forgot.Forgot"
+        android:label="Forgot"
+        tools:layout="@layout/forgot">
+        <action
+            android:id="@+id/action_forgot_to_otpVerify"
+            app:destination="@id/otpVerify" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/otpVerify"
+        android:name="com.strutoocustomer.customer.views.otpverify.OtpVerify"
+        android:label="OtpVerify"
+        tools:layout="@layout/otp_verify">
+
+        <action
+            android:id="@+id/otpVerifyToProfileSetup"
+            app:destination="@id/profileSetup"
+            app:popUpTo="@id/otpVerify"
+            app:popUpToInclusive="true" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileSetup"
+        android:name="com.strutoocustomer.customer.views.profilesetup.ProfileSetup"
+        android:label="ProfileSetup"
+        tools:layout="@layout/profile_setup">
+
+        <action
+            android:id="@+id/profileSetupToSignIn"
+            app:destination="@id/signIn" />
+    </fragment>
+    <fragment
+        android:id="@+id/home"
+        android:name="com.strutoocustomer.customer.views.home.Home"
+        android:label="Home"
+        tools:layout="@layout/home">
+        <action
+            android:id="@+id/homeToScanner"
+            app:destination="@id/scanner" />
+        <action
+            android:id="@+id/homeToCart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/homeToSearch"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/homeToServiceDetailStore"
+            app:destination="@id/serviceDetailStore" />
+        <action
+            android:id="@+id/homeToProfileView"
+            app:destination="@id/profileView"/>
+
+        <action
+            android:id="@+id/homeToProduct"
+            app:destination="@id/product"
+
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/book"
+        android:name="com.strutoocustomer.customer.views.book.Book"
+        android:label="Book"
+        tools:layout="@layout/book">
+        <action
+            android:id="@+id/bookToBookings"
+            app:destination="@id/bookings" />
+        <action
+            android:id="@+id/bookToBookList"
+            app:destination="@id/bookList" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile"
+        android:name="com.strutoocustomer.customer.views.profile.Profile"
+        android:label="Profile"
+        tools:layout="@layout/profile">
+        <action
+            android:id="@+id/profileToPromoCode"
+            app:destination="@id/promoCode" />
+        <action
+            android:id="@+id/profileToWishList"
+            app:destination="@id/wishList" />
+        <action
+            android:id="@+id/profileToBooking"
+            app:destination="@id/booking" />
+        <action
+            android:id="@+id/profileToMyOrders"
+            app:destination="@id/myOrders" />
+        <action
+            android:id="@+id/profileToEditProfile"
+            app:destination="@id/editProfile" />
+        <action
+            android:id="@+id/profileToMyAddress"
+            app:destination="@id/myAddress" />
+        <action
+            android:id="@+id/profileToCountryNLanguage"
+            app:destination="@id/countryNLanguage" />
+        <action
+            android:id="@+id/profileToNotification"
+            app:destination="@id/notification" />
+        <action
+            android:id="@+id/profileToPaymentMethod"
+            app:destination="@id/paymentMethod" />
+    </fragment>
+    <fragment
+        android:id="@+id/shop"
+        android:name="com.strutoocustomer.customer.views.shop.Shop"
+        android:label="Shop"
+        tools:layout="@layout/shop">
+        <action
+            android:id="@+id/shopToSearchAddress"
+            app:destination="@id/searchAddress" />
+        <action
+            android:id="@+id/shopToShopProducts"
+            app:destination="@id/shopProducts" />
+        <action
+            android:id="@+id/shopToAllBrands"
+            app:destination="@id/allBrands" />
+        <action
+            android:id="@+id/shopToCart"
+            app:destination="@id/cart" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/studio"
+        android:name="com.strutoocustomer.customer.views.studio.Studio"
+        android:label="Studio"
+        tools:layout="@layout/studio">
+        <action
+            android:id="@+id/studioToStudioSearch"
+            app:destination="@id/studioSearch" />
+
+        <action
+            android:id="@+id/studioToMakeUpArtists"
+            app:destination="@id/makeUpArtists" />
+
+        <action
+            android:id="@+id/studioToLiveShows"
+            app:destination="@id/liveShows" />
+    </fragment>
+    <fragment
+        android:id="@+id/scanner"
+        android:name="com.strutoocustomer.customer.views.scanner.Scanner"
+        android:label="Scanner"
+        tools:layout="@layout/scanner" />
+    <fragment
+        android:id="@+id/cart"
+        android:name="com.strutoocustomer.customer.views.cart.Cart"
+        android:label="Cart"
+        tools:layout="@layout/cart">
+        <action
+            android:id="@+id/cartToPromoCode"
+            app:destination="@id/promoCode" />
+        <action
+            android:id="@+id/cartToCheckOut"
+            app:destination="@id/checkOut" />
+    </fragment>
+    <fragment
+        android:id="@+id/search"
+        android:name="com.strutoocustomer.customer.views.search.Search"
+        android:label="Search"
+        tools:layout="@layout/search" />
+
+    <fragment
+        android:id="@+id/serviceDetailStore"
+        android:name="com.strutoocustomer.customer.views.servicedetailsstore.ServiceDetailStore"
+        android:label="ServiceDetailStore"
+        tools:layout="@layout/service_detail_store">
+
+
+        <action
+            android:id="@+id/serviceDetailStoreToShop"
+            app:destination="@id/shop" />
+
+        <action
+            android:id="@+id/serviceDetailStoreToCart"
+            app:destination="@id/cart" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/promoCode"
+        android:name="com.strutoocustomer.customer.views.promocode.PromoCode"
+        android:label="PromoCode"
+        tools:layout="@layout/promo_code" />
+    <fragment
+        android:id="@+id/profileView"
+        android:name="com.strutoocustomer.customer.views.profileview.ProfileView"
+        android:label="ProfileView"
+        tools:layout="@layout/profile_view">
+
+        <action
+            android:id="@+id/profileViewToProfileViewDetails"
+            app:destination="@id/profileViewDetails" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/studioSearch"
+        android:name="com.strutoocustomer.customer.views.studiosearch.StudioSearch"
+        android:label="StudioSearch"
+        tools:layout="@layout/studio_search" />
+    <fragment
+        android:id="@+id/checkOut"
+        android:name="com.strutoocustomer.customer.views.checkout.CheckOut"
+        android:label="CheckOut"
+        tools:layout="@layout/check_out">
+        <action
+            android:id="@+id/checkOutToOrderPlaced"
+            app:destination="@id/orderPlaced" />
+        <action
+            android:id="@+id/checkOutToAddCard"
+            app:destination="@id/addCard" />
+        <action
+            android:id="@+id/checkOutToAddAddress"
+            app:destination="@id/addAddress" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchAddress"
+        android:name="com.strutoocustomer.customer.views.searchaddress.SearchAddress"
+        android:label="SearchAddress"
+        tools:layout="@layout/search_address">
+
+        <action
+            android:id="@+id/searchAddressToAddAddress"
+            app:destination="@id/addAddress" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/bookList"
+        android:name="com.strutoocustomer.customer.views.booklist.BookList"
+        android:label="BookList"
+        tools:layout="@layout/fragment_book_list">
+        <action
+            android:id="@+id/bookListToFilters"
+            app:destination="@id/filters" />
+        <action
+            android:id="@+id/bookListToProduct"
+            app:destination="@id/product" />
+
+        <action
+            android:id="@+id/bookListToBookings"
+            app:destination="@id/bookings" />
+    </fragment>
+    <fragment
+        android:id="@+id/wishList"
+        android:name="com.strutoocustomer.customer.views.wishlist.WishList"
+        android:label="WishList"
+        tools:layout="@layout/wish_list">
+        <action
+            android:id="@+id/wishListToCart"
+            app:destination="@id/cart" />
+    </fragment>
+    <fragment
+        android:id="@+id/booking"
+        android:name="com.strutoocustomer.customer.views.booking.Booking"
+        android:label="Booking"
+        tools:layout="@layout/booking">
+
+        <action
+            android:id="@+id/bookingToBookingDetails"
+            app:destination="@id/bookingDetails" />
+
+        <action
+            android:id="@+id/bookingToOrderFilter"
+            app:destination="@id/orderFilter" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/myOrders"
+        android:name="com.strutoocustomer.customer.views.myorder.MyOrders"
+        android:label="MyOrders"
+        tools:layout="@layout/my_orders">
+        <action
+            android:id="@+id/myOrdersToMySubOrders"
+            app:destination="@id/mySubOrders" />
+        <action
+            android:id="@+id/myOrdersToOrderFilter"
+            app:destination="@id/orderFilter" />
+    </fragment>
+    <fragment
+        android:id="@+id/editProfile"
+        android:name="com.strutoocustomer.customer.views.editprofile.EditProfile"
+        android:label="EditProfile"
+        tools:layout="@layout/edit_profile">
+        <action
+            android:id="@+id/editProfileToChangePassword"
+            app:destination="@id/changePassword" />
+    </fragment>
+    <fragment
+        android:id="@+id/changePassword"
+        android:name="com.strutoocustomer.customer.views.changepassword.ChangePassword"
+        android:label="ChangePassword"
+        tools:layout="@layout/change_password" />
+    <fragment
+        android:id="@+id/shopProducts"
+        android:name="com.strutoocustomer.customer.views.shop.shopproducts.ShopProducts"
+        android:label="ShopProducts"
+        tools:layout="@layout/fragment_shop_products">
+        <action
+            android:id="@+id/shopProductsToWishList"
+            app:destination="@id/wishList" />
+        <action
+            android:id="@+id/shopProductsToCart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/shopProductsToSearch"
+            app:destination="@id/search" />
+        <action
+            android:id="@+id/shopProductsToFilters"
+            app:destination="@id/filters" />
+        <action
+            android:id="@+id/shopProductsToShopProductDetails"
+            app:destination="@id/shopProductDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/addAddress"
+        android:name="com.strutoocustomer.customer.views.addaddress.AddAddress"
+        android:label="AddAddress"
+        tools:layout="@layout/fragment_add_address" />
+    <fragment
+        android:id="@+id/bookings"
+        android:name="com.strutoocustomer.customer.views.bookings.Bookings"
+        android:label="Bookings"
+        tools:layout="@layout/fragment_bookings">
+        <action
+            android:id="@+id/bookingsToConfirmDetails"
+            app:destination="@id/confirmDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/paymentMethod"
+        android:name="com.strutoocustomer.customer.views.paymentmethod.PaymentMethod"
+        android:label="PaymentMethod"
+        tools:layout="@layout/payment_method">
+        <action
+            android:id="@+id/paymentMethodToAddCard"
+            app:destination="@id/addCard" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmDetails"
+        android:name="com.strutoocustomer.customer.views.bookings.confirmdetails.ConfirmDetails"
+        android:label="ConfirmDetails"
+        tools:layout="@layout/fragment_confirm_details">
+
+    </fragment>
+    <fragment
+        android:id="@+id/filters"
+        android:name="com.strutoocustomer.customer.views.filters.Filters"
+        android:label="Filters"
+        tools:layout="@layout/filters" />
+    <fragment
+        android:id="@+id/liveShows"
+        android:name="com.strutoocustomer.customer.views.liveshows.LiveShows"
+        android:label="LiveShows"
+        tools:layout="@layout/live_shows">
+
+        <action
+            android:id="@+id/liveShowsToSearchStudio"
+            app:destination="@id/studioSearch" />
+        <action
+            android:id="@+id/liveShowsToGoLive"
+            app:destination="@id/goLive" />
+
+        <action
+            android:id="@+id/liveShowsToSchedule"
+            app:destination="@id/schedule" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/rateProduct"
+        android:name="com.strutoocustomer.customer.views.rateproduct.RateProduct"
+        android:label="RateProduct"
+        tools:layout="@layout/rate_product" />
+    <fragment
+        android:id="@+id/orderPlaced"
+        android:name="com.strutoocustomer.customer.views.orderplace.OrderPlaced"
+        android:label="OrderPlaced"
+        tools:layout="@layout/order_placed" />
+    <fragment
+        android:id="@+id/addCard"
+        android:name="com.strutoocustomer.customer.views.addcard.AddCard"
+        android:label="AddCard"
+        tools:layout="@layout/add_card" />
+    <fragment
+        android:id="@+id/shopProductDetails"
+        android:name="com.strutoocustomer.customer.views.shopproductdetails.ShopProductDetails"
+        android:label="ShopProductDetails"
+        tools:layout="@layout/shop_product_details">
+        <action
+            android:id="@+id/shopProductDetailsToCart"
+            app:destination="@id/cart" />
+        <action
+            android:id="@+id/shopProductDetailsToTryOn"
+            app:destination="@id/tryOn" />
+        <action
+            android:id="@+id/shopProductDetailsToRateProduct"
+            app:destination="@id/rateProduct" />
+    </fragment>
+    <fragment
+        android:id="@+id/tryOn"
+        android:name="com.strutoocustomer.customer.views.tryon.TryOn"
+        android:label="TryOn"
+        tools:layout="@layout/try_on" />
+    <fragment
+        android:id="@+id/allBrands"
+        android:name="com.strutoocustomer.customer.views.allbrands.AllBrands"
+        android:label="AllBrands"
+        tools:layout="@layout/all_brands" />
+    <fragment
+        android:id="@+id/about"
+        android:name="com.strutoocustomer.customer.views.product.about.About"
+        android:label="About"
+        tools:layout="@layout/about" />
+    <fragment
+        android:id="@+id/chat"
+        android:name="com.strutoocustomer.customer.views.chat.Chat"
+        android:label="Chat"
+        tools:layout="@layout/chat" />
+    <fragment
+        android:id="@+id/contactUs"
+        android:name="com.strutoocustomer.customer.views.contactus.ContactUs"
+        android:label="ContactUs"
+        tools:layout="@layout/fragment_contact_us" />
+    <fragment
+        android:id="@+id/countryNLanguage"
+        android:name="com.strutoocustomer.customer.views.countrynlanguage.CountryNLanguage"
+        android:label="CountryNLanguage"
+        tools:layout="@layout/fragment_country_n_language" />
+    <fragment
+        android:id="@+id/goLive"
+        android:name="com.strutoocustomer.customer.views.liveshows.golive.GoLive"
+        android:label="GoLive"
+        tools:layout="@layout/fragment_go_live" />
+    <fragment
+        android:id="@+id/media"
+        android:name="com.strutoocustomer.customer.views.product.media.Media"
+        android:label="Media"
+        tools:layout="@layout/media_layout" />
+    <fragment
+        android:id="@+id/pictures"
+        android:name="com.strutoocustomer.customer.views.product.media.view.Pictures"
+        android:label="Pictures"
+        tools:layout="@layout/pictures_layout" />
+    <fragment
+        android:id="@+id/product"
+        android:name="com.strutoocustomer.customer.views.product.Product"
+        android:label="Product"
+        tools:layout="@layout/product">
+
+        <action
+            android:id="@+id/productToBookings"
+            app:destination="@id/bookings" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/reviews"
+        android:name="com.strutoocustomer.customer.views.product.review.Reviews"
+        android:label="Reviews"
+        tools:layout="@layout/reviews" />
+    <fragment
+        android:id="@+id/services"
+        android:name="com.strutoocustomer.customer.views.product.services.Services"
+        android:label="Services"
+        tools:layout="@layout/services" />
+
+    <fragment
+        android:id="@+id/videos"
+        android:name="com.strutoocustomer.customer.views.product.media.view.Videos"
+        android:label="Videos"
+        tools:layout="@layout/videos_layout" />
+
+    <fragment
+        android:id="@+id/notification"
+        android:name="com.strutoocustomer.customer.views.notification.Notification"
+        android:label="Notification"
+        tools:layout="@layout/notification" />
+    <fragment
+        android:id="@+id/bookingDetails"
+        android:name="com.strutoocustomer.customer.views.booking.bookingdetails.BookingDetails"
+        android:label="BookingDetails"
+        tools:layout="@layout/fragment_booking_details">
+        <action
+            android:id="@+id/bookingDetailsToChat"
+            app:destination="@id/chat" />
+
+        <action
+            android:id="@+id/bookingDetailsToTracking"
+            app:destination="@id/tracking" />
+
+        <action
+            android:id="@+id/bookingDetailsToPayment"
+            app:destination="@id/payment" />
+    </fragment>
+    <fragment
+        android:id="@+id/myAddress"
+        android:name="com.strutoocustomer.customer.views.myaddress.MyAddress"
+        android:label="MyAddress"
+        tools:layout="@layout/my_address">
+
+        <action
+            android:id="@+id/myAddressToAddAddress"
+            app:destination="@id/addAddress" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/mySubOrders"
+        android:name="com.strutoocustomer.customer.views.myorder.mysuborders.MySubOrders"
+        android:label="MySubOrders"
+        tools:layout="@layout/fragment_my_sub_orders">
+
+        <action
+            android:id="@+id/mySubOrdersToSubOrderDetails"
+            app:destination="@id/suborderDetail" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/payment"
+        android:name="com.strutoocustomer.customer.views.payment.Payment"
+        android:label="Payment"
+        tools:layout="@layout/fragment_payment">
+
+        <action
+            android:id="@+id/paymentToPaymentDone"
+            app:destination="@id/paymentDone" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/suborderDetail"
+        android:name="com.strutoocustomer.customer.views.myorder.suborderdetail.SuborderDetail"
+        android:label="SuborderDetail"
+        tools:layout="@layout/fragment_suborder_detail" />
+
+    <fragment
+        android:id="@+id/offers"
+        android:name="com.strutoocustomer.customer.views.offers.Offers"
+        android:label="Offers"
+        tools:layout="@layout/offers" />
+    <fragment
+        android:id="@+id/tracking"
+        android:name="com.strutoocustomer.customer.views.tracking.Tracking"
+        android:label="Tracking"
+        tools:layout="@layout/tracking" />
+    <fragment
+        android:id="@+id/paymentDone"
+        android:name="com.strutoocustomer.customer.views.paymentdone.PaymentDone"
+        android:label="PaymentDone"
+        tools:layout="@layout/payment_done">
+
+        <action
+            android:id="@+id/paymentDoneToBooking"
+            app:destination="@id/booking" />
+
+        <action
+            android:id="@+id/paymentDoneToRateExperience"
+            app:destination="@id/rateExperience" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/makeUpArtists"
+        android:name="com.strutoocustomer.customer.views.makeupartist.MakeUpArtists"
+        android:label="MakeUpArtists"
+        tools:layout="@layout/make_up_artists">
+
+        <action
+            android:id="@+id/makeUpArtistsToMakeUpArtistList"
+            app:destination="@id/makeUpArtistsList" />
+    </fragment>
+    <fragment
+        android:id="@+id/makeUpArtistsList"
+        android:name="com.strutoocustomer.customer.views.makeupartistslist.MakeUpArtistsList"
+        android:label="MakeUpArtistsList"
+        tools:layout="@layout/make_up_artists_list">
+
+
+        <action
+            android:id="@+id/makeUpArtistsListToProfileView"
+            app:destination="@id/profileView" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/profileViewDetails"
+        android:name="com.strutoocustomer.customer.views.profileviewdetails.ProfileViewDetails"
+        android:label="ProfileViewDetails"
+        tools:layout="@layout/profile_view_details" />
+    <fragment
+        android:id="@+id/orderFilter"
+        android:name="com.strutoocustomer.customer.views.orderfilter.OrderFilter"
+        android:label="OrderFilter"
+        tools:layout="@layout/order_filter" />
+    <fragment
+        android:id="@+id/schedule"
+        android:name="com.strutoocustomer.customer.views.schedule.Schedule"
+        android:label="Schedule"
+        tools:layout="@layout/schedule" />
+    <fragment
+        android:id="@+id/influencerDetails"
+        android:name="com.strutoocustomer.customer.views.influencer_details.InfluencerDetails"
+        android:label="Influencer"
+        tools:layout="@layout/influencer_details" >
+        <action
+            android:id="@+id/influencerProfile"
+            app:destination="@id/profileView" />
+    </fragment>
+    <fragment
+        android:id="@+id/rateExperience"
+        tools:layout="@layout/rate_experience"
+        android:name="com.strutoocustomer.customer.views.rateexperience.RateExperience"
+        android:label="RateExperience">
+        <action
+            android:id="@+id/rateExperienceToBooking"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/booking"
+            app:destination="@id/booking" />
+    </fragment>
+
+
+</navigation>

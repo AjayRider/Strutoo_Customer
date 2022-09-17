@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+           type="com.strutoocustomer.customer.recycleradapter.DummyModel"    />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textTopSalons"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:text="@{model.name}"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_vertical|start"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@id/viewEmpty"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:textAllCaps="true" />
+
+        <View
+            android:id="@+id/viewEmpty"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="#e5e5e5"
+            app:layout_constraintBottom_toBottomOf="@id/textTopSalons"
+            app:layout_constraintEnd_toStartOf="@id/textSeeAll"
+            app:layout_constraintStart_toEndOf="@id/textTopSalons"
+            app:layout_constraintTop_toTopOf="@id/textTopSalons" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/textSeeAll"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            setRecyclerAdapter=""
+            android:fontFamily="@font/bw_modelica_medium"
+            android:gravity="center_vertical|start"
+            android:text="@string/seeall"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textTopSalons"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textTopSalons" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTopSalon"
+            tools:listitem="@layout/item_layout_salons"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:orientation="horizontal"
+            setRecyclerAdapter="@{model.innerBookAdapter}"
+            android:paddingBottom="@dimen/_5sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textSeeAll"
+            app:spanCount="3" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

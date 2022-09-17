@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="servicesVM"
+            type="com.strutoocustomer.customer.views.product.services.ServicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.product.services.Services">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/left_arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/rvServices"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_5sdp"
+                    android:elevation="@dimen/_10sdp"
+                    android:src="@drawable/right_arrow"
+                    app:layout_constraintBottom_toBottomOf="@+id/rvServices"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvServices"
+                    setRecyclerAdapter="@{servicesVM.servicesAdapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:listitem="@layout/services_layout" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvMakeUpService"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/bw_modelica_bold"
+                    android:text="@string/makeup_services"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/rvServices" />
+
+                <View
+                    android:id="@+id/view"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:background="@color/_e6e6e6"
+                    app:layout_constraintBottom_toBottomOf="@id/tvMakeUpService"
+                    app:layout_constraintEnd_toEndOf="@id/rvServicesTypes"
+                    app:layout_constraintStart_toEndOf="@id/tvMakeUpService"
+                    app:layout_constraintTop_toTopOf="@id/tvMakeUpService" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvServicesTypes"
+                    setRecyclerAdapter="@{servicesVM.servicesTypes}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvMakeUpService"
+                    tools:itemCount="2"
+                    tools:listitem="@layout/services_types_layout" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

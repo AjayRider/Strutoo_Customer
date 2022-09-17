@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.otpverify.OtpVerifyVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_sign_in"
+        tools:context=".customer.views.otpverify.OtpVerify">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:paddingHorizontal="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/ivBack"
+                android:layout_width="@dimen/_30sdp"
+                android:layout_height="@dimen/_30sdp"
+                android:background="@drawable/background_round_5_light_grey"
+                android:onClick="@{model::onClick}"
+                android:padding="@dimen/_5sdp"
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clToolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/dharmagothice_regular"
+                    android:text="Verification"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/_36ssp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDesc"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/tvDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="@string/we_sent_verification"
+                    android:textColor="@color/_666666"
+                    android:textSize="@dimen/_10sdp"
+                    android:lineSpacingExtra="@dimen/_2sdp"
+                    android:textStyle="normal"
+                    app:layout_constraintBottom_toTopOf="@+id/otp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWelcome" />
+
+                <com.mukesh.mukeshotpview.mukeshOtpView.MukeshOtpView
+                    android:id="@+id/otp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_30sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:imeOptions="actionNext"
+                    android:inputType="number"
+                    android:paddingVertical="@dimen/_5sdp"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="18sp"
+                    app:hideLineWhenFilled="false"
+                    android:gravity="center"
+                    app:itemCount="4"
+                    app:itemHeight="@dimen/_40sdp"
+                    app:itemSpacing="@dimen/_10sdp"
+                    app:itemWidth="@dimen/_60sdp"
+                    app:layout_constraintBottom_toTopOf="@+id/btnContinue"
+                    app:layout_constraintEnd_toEndOf="@id/btnContinue"
+                    app:layout_constraintStart_toStartOf="@id/btnContinue"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+                    app:lineColor="@color/grey_e2e2e2"
+                    app:lineWidth="@dimen/_1sdp"
+                    app:state_filled="true"
+                    app:viewType="rectangle" />
+
+                <Button
+                    android:id="@+id/btnContinue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/_10sdp"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:letterSpacing="-0.0"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_7sdp"
+                    android:text="Continue"
+                    android:textAllCaps="false"
+                    android:background="@drawable/search_stroke"
+                    android:textSize="@dimen/_12sdp"
+                    android:textStyle="normal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/otp" />
+
+                <TextView
+                    android:id="@+id/tvTimeDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="The verify code will expire in "
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toStartOf="@+id/tvTimer"
+                    app:layout_constraintHorizontal_chainStyle="packed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/btnContinue" />
+
+                <TextView
+                    android:id="@+id/tvTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:text="00:59"
+                    android:textColor="@color/torch_red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvTimeDesc"
+                    app:layout_constraintTop_toBottomOf="@+id/btnContinue" />
+
+                <TextView
+                    android:id="@+id/tvResend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:onClick="@{model::onClick}"
+                    android:padding="@dimen/_15sdp"
+                    android:text="Resend Code"
+                    android:textColor="@color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTimeDesc" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="#66ffae"
+                    android:gravity="center"
+                    android:padding="@dimen/_15sdp"
+                    android:paddingHorizontal="@dimen/_10sdp"
+                    android:text="You will get a call from the us shortly regarding
+the OTP Verification."
+                    android:textColor="@color/black"
+                    android:visibility="@{model.isShowResend?View.VISIBLE:View.GONE}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvResend" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

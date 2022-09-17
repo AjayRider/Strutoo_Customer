@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginVertical="@dimen/_10sdp">
+
+        <ImageView
+            android:id="@+id/ivLearn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/sample_salo_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/ivShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:src="@drawable/share"
+            app:layout_constraintEnd_toEndOf="@id/ivLearn"
+            app:layout_constraintTop_toTopOf="@id/ivLearn" />
+
+        <ImageView
+            android:id="@+id/ivLike"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/like"
+            app:layout_constraintEnd_toEndOf="@id/ivShare"
+            app:layout_constraintTop_toBottomOf="@id/ivShare" />
+
+
+        <ImageView
+            android:id="@+id/ivVolumeHigh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:src="@drawable/volume_high"
+            app:layout_constraintEnd_toEndOf="@id/ivLike"
+            app:layout_constraintTop_toBottomOf="@id/ivLike" />
+
+
+        <ImageView
+            android:id="@+id/ivPlayBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/play_button"
+            app:layout_constraintBottom_toBottomOf="@id/ivLearn"
+            app:layout_constraintEnd_toEndOf="@id/ivLearn"
+            app:layout_constraintStart_toStartOf="@id/ivLearn"
+            app:layout_constraintTop_toTopOf="@id/ivLearn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvTagLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="8dp"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:text="Charming Glamorous Look !!!:)"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12ssp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/contents"
+            app:layout_constraintStart_toStartOf="@id/ivLearn" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/contents"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/_10sdp"
+            android:fontFamily="@font/bw_modelica"
+            android:text="Your customised Vedix products are rich in over 40 natural herbs like Bhringraj, Aloe Vera, Amla."
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10ssp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/ivVolumeHigh"
+            app:layout_constraintStart_toStartOf="@id/tvTagLine" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_5sdp">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivShadeItem"
+            android:layout_width="@dimen/_40sdp"
+            android:layout_height="@dimen/_40sdp"
+            android:src="@drawable/mask_group_2859"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:shapeAppearanceOverlay="@style/circleImage" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@+id/ivShadeItem"
+            app:layout_constraintEnd_toEndOf="@+id/ivShadeItem"
+            app:layout_constraintTop_toBottomOf="@+id/ivShadeItem"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:textStyle="normal"
+            android:gravity="center"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textSize="@dimen/_8ssp"
+            android:textColor="@color/_1d1d1d"
+            android:text="@{model.text}"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

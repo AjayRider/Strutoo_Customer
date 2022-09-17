@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.orderplace.OrderPlacedVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/clParent"
+        android:onClick="@{model::onClick}"
+        android:background="@color/black"
+        tools:context=".customer.views.orderplace.OrderPlaced">
+
+        <ImageView
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
+            android:src="@drawable/ic_placed_order"
+            android:id="@+id/ivConfirm"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@+id/tvOrderPlaced"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Placed"
+            android:textStyle="normal"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:id="@+id/tvOrderPlaced"
+            android:textSize="@dimen/_38ssp"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toTopOf="@+id/tvDesc"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivConfirm"
+            android:fontFamily="@font/dharmagothice_regular"/>
+
+        <TextView
+            android:id="@+id/tvDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:text="Congratulations, your order has been placed.\nCheck your email to see the status for\nyour order."
+            android:textColor="@color/_e1e1e1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvOrderPlaced" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

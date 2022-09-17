@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.models.ServicesDetails" />
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/_5sdp"
+        android:background="@color/white"
+        app:cardElevation="@dimen/_20sdp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivServiceIcon"
+                android:layout_width="@dimen/_70sdp"
+                android:layout_height="@dimen/_70sdp"
+                android:src="@{model.servicesImage}"
+                android:scaleType="fitXY"
+                app:contentPadding="@dimen/_5sdp"
+                tools:src="@drawable/ic_makeup" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvServicesName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:fontFamily="@font/bw_modelica_medium"
+                android:paddingVertical="@dimen/_2sdp"
+                android:text="@{model.servicesName}"
+                android:textColor="@color/_1d1d1d"
+                android:textSize="@dimen/_7ssp"
+                tools:text="Make Up" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

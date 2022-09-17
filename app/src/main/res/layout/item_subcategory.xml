@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{(v) -> model.onItemClick.onClick(v,model.adapterPosition,``)}"
+        android:layout_marginEnd="@dimen/_4sdp">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/etName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="@dimen/_10sdp"
+            android:paddingHorizontal="@dimen/_10sdp"
+            android:text="@{model.text}"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textSize="@dimen/_10sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@{model.isSelected?@drawable/bg_category:@drawable/search_stroke}"
+            tools:textColor="@android:color/transparent"
+            android:textColor="@{model.isSelected == true ? @color/white : @color/black}"
+            android:textColorHint="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <View
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

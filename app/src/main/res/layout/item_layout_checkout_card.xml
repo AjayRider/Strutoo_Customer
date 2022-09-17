@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPayment">
+
+        <ImageView
+            android:id="@+id/ivOption"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:src="@drawable/ic_visa"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDebit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8ssp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="Visa"
+            android:textColor="@color/_1d1d1d"
+            android:textSize="@dimen/_9sdp"
+            android:layout_marginBottom="@dimen/_8sdp"
+            app:layout_constraintBottom_toTopOf="@id/tvDebitNumber"
+            app:layout_constraintStart_toEndOf="@+id/ivOption"
+            app:layout_constraintTop_toTopOf="@+id/ivOption" />
+
+        <TextView
+            android:id="@+id/tvDebitNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_8ssp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:text="**** **** **** 3554"
+            android:textColor="@color/_1d1d1d"
+
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintTop_toBottomOf="@id/tvDebit"
+            app:layout_constraintBottom_toBottomOf="@+id/ivOption"
+            app:layout_constraintStart_toEndOf="@+id/ivOption" />
+
+        <ImageView
+            android:id="@+id/ivAdd"
+            android:layout_width="@dimen/_20sdp"
+            android:layout_height="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:src="@drawable/ic_round_radio"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:background="@color/_1B666666"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDebitNumber" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

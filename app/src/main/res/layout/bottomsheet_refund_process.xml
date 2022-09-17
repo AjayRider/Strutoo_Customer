@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_btmsheet"
+        android:padding="@dimen/_20sdp">
+
+        <View
+            android:layout_width="70dp"
+            android:layout_height="2dp"
+            android:background="#4a000000"
+            android:id="@+id/viewBar"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/bw_modelica_bold"
+            android:lineSpacingExtra="28sp"
+            android:text="Refund Order"
+            android:textColor="#2f2f2f"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewBar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/cross_cancel"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="@dimen/_50sdp"
+            android:layout_height="@dimen/_50sdp"
+            android:src="@drawable/ic_refund_info"
+            android:id="@+id/ivInfo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/tvDesc"
+            android:layout_marginTop="@dimen/_15sdp"
+            android:text="Your Refund Amount will be sent back to the source of payment within 7 working days after successful pickup of order."
+            app:layout_constraintTop_toBottomOf="@+id/ivInfo"
+            android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:id="@+id/tvButton"
+            android:background="@color/black"
+            android:paddingVertical="@dimen/_10sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="@dimen/_15sdp"
+            app:layout_constraintTop_toBottomOf="@+id/tvDesc"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:text="Agree and submit"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

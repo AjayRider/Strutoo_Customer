@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.recycleradapter.DummyModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/clProfile"
+        android:onClick="@{(v)->model.onItemClick.onClick(v, model.adapterPosition, `all`)}"
+        android:layout_margin="@dimen/_3sdp">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cvImage"
+            app:cardCornerRadius="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivLiveShowsModel"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/mask_group_8"
+                 />
+
+
+        </androidx.cardview.widget.CardView>
+
+
+        <TextView
+            android:id="@+id/tvLive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textSize="10sp"
+            android:elevation="@dimen/_10ssp"
+            android:background="@drawable/live_pink_round_corner"
+            android:textColor="@color/white"
+            android:text="LIVE"
+            android:visibility="@{!model.isPast?View.GONE:View.VISIBLE}"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintStart_toStartOf="@id/cvImage"
+            app:layout_constraintTop_toTopOf="@id/cvImage" />
+
+
+        <TextView
+            android:id="@+id/tvScheduleTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:layout_marginStart="@dimen/_5sdp"
+            android:textSize="10sp"
+            android:elevation="@dimen/_10ssp"
+            android:visibility="@{!model.isPast?View.VISIBLE:View.GONE}"
+            android:background="@drawable/tv_bg_scheduleshows"
+            android:textColor="@color/white"
+            android:text="Fri, 01:00 PM"
+            android:paddingVertical="2dp"
+            android:paddingHorizontal="@dimen/_5sdp"
+            android:fontFamily="@font/bw_modelica_medium"
+            app:layout_constraintStart_toStartOf="@id/cvImage"
+            app:layout_constraintTop_toTopOf="@id/cvImage" />
+
+
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Extra 50% Off!\nCosmetics, Perfumes &amp;.."
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:padding="@dimen/_2sdp"
+            android:elevation="@dimen/_10ssp"
+            android:background="#60000000"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginBottom="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="@id/cvImage"
+            app:layout_constraintBottom_toBottomOf="@id/cvImage"
+            app:layout_constraintEnd_toEndOf="@id/cvImage" />
+
+
+        <TextView
+            android:id="@+id/tvModelNameSingleItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/_1d1d1d"
+            android:fontFamily="@font/bw_modelica_medium"
+            android:textSize="@dimen/_12ssp"
+            android:text="Aswathi Balakrishan"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="@id/cvImage"
+            app:layout_constraintTop_toBottomOf="@id/cvImage" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

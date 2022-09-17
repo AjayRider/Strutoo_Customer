@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.makeupartist.MakeUpArtistsVM" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".customer.views.makeupartist.MakeUpArtists">
+
+        <ImageView
+            android:id="@+id/ivBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/_10sdp"
+            android:layout_marginVertical="@dimen/_30sdp"
+            android:elevation="@dimen/_10sdp"
+            android:onClick="@{model::onClick}"
+            android:padding="@dimen/_10sdp"
+            android:src="@drawable/ic_back_white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2Model"
+            setViewPagerAdapter="@{model.bannerAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvLatestLook"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Check the latest Look from the "
+            android:textColor="@color/white"
+            android:textSize="@dimen/_10sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/ivBack" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins_medium"
+            android:text="MAKEUP ARTIST"
+            android:textColor="#00f474"
+            android:textSize="@dimen/_18sdp"
+            app:layout_constraintEnd_toEndOf="@id/tvLatestLook"
+            app:layout_constraintTop_toBottomOf="@id/tvLatestLook" />
+
+
+        <View
+            android:id="@+id/tvNameView"
+            android:layout_width="@dimen/_15sdp"
+            android:layout_height="1dp"
+            android:layout_marginEnd="@dimen/_5sdp"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="@+id/tvModelName"
+            app:layout_constraintEnd_toStartOf="@+id/tvModelName"
+            app:layout_constraintTop_toTopOf="@+id/tvModelName" />
+
+        <TextView
+            android:id="@+id/tvModelName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_1sdp"
+            android:fontFamily="@font/poppins_light"
+            android:text="Nagwa Zehran"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_9sdp"
+            app:layout_constraintEnd_toEndOf="@id/tvLatestLook"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+
+
+        <com.tbuonomo.viewpagerdotsindicator.SpringDotsIndicator
+            android:id="@+id/spring_dots_indicator"
+            addIndicator="@{vp2Model}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:dampingRatio="0.5"
+            app:dotsColor="@color/black"
+            app:dotsCornerRadius="@dimen/_5sdp"
+            app:dotsSize="@dimen/_6sdp"
+            app:dotsSpacing="@dimen/_1sdp"
+            app:dotsStrokeColor="@color/grey"
+            app:dotsStrokeWidth="@dimen/_1sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/vp2Model"
+            app:stiffness="100" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvExperts"
+            setRecyclerAdapter="@{model.makeUpArtistAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/_5sdp"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/spring_dots_indicator"
+            tools:itemCount="4"
+            tools:listitem="@layout/item_layout_makupartist_singleitems" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

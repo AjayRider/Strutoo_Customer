@@ -1,0 +1,560 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.strutoocustomer.customer.views.profile.ProfileVM" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cldetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"
+            android:padding="@dimen/_20sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".customer.views.profile.Profile">
+
+
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/ivprofilePhoto"
+                android:layout_width="@dimen/_60sdp"
+                android:layout_height="@dimen/_60sdp"
+                android:src="@drawable/mask_group_3"
+                android:onClick="@{model::onClick}"
+                app:contentPadding="@dimen/_5sdp"
+                app:strokeColor="@color/white"
+                app:strokeWidth="1dp"
+                android:padding="@dimen/_2sdp"
+                app:shapeAppearanceOverlay="@style/circleImage"
+                app:layout_constraintStart_toStartOf="@id/cldetails"
+                app:layout_constraintTop_toTopOf="@id/cldetails" />
+
+            <TextView
+                android:id="@+id/tvnameprofilemenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_20sdp"
+                android:layout_marginTop="@dimen/_10sdp"
+                android:fontFamily="@font/dharmagothice_regular"
+                android:text="Hello, Simran"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                app:layout_constraintStart_toEndOf="@id/ivprofilePhoto"
+                app:layout_constraintTop_toTopOf="@id/ivprofilePhoto" />
+
+            <TextView
+                android:id="@+id/tvemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bw_modelica"
+                android:text="Simranahitaan@apptunix.com"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/tvnameprofilemenu"
+                app:layout_constraintTop_toBottomOf="@id/tvnameprofilemenu" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clOption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="@dimen/_10sdp"
+            app:layout_constraintTop_toBottomOf="@+id/cldetails">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clOrder"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                app:layout_constraintEnd_toStartOf="@+id/clBook"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivOrder"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/ic_circle_grey"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_my_order"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="My Orders"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivOrder" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clBook"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                app:layout_constraintEnd_toStartOf="@+id/clWishlist"
+                app:layout_constraintStart_toEndOf="@+id/clOrder"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivBook"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/ic_circle_grey"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_booking"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Bookings"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivBook" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clWishlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                app:layout_constraintEnd_toStartOf="@+id/clCoupons"
+                app:layout_constraintStart_toEndOf="@+id/clBook"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivWishlist"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/ic_circle_grey"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_wishlist"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Wishlist"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivWishlist" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/clCoupons"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/_5sdp"
+                android:onClick="@{model::onClick}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/clWishlist"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/ivCoupons"
+                    android:layout_width="@dimen/_30sdp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:background="@drawable/ic_circle_grey"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_coupons"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="Coupons"
+                    android:textColor="@color/_1d1d1d"
+                    android:textSize="@dimen/_8ssp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivCoupons" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_2sdp"
+            android:background="@color/_1B666666"
+            android:id="@+id/view"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintTop_toBottomOf="@+id/clOption"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clProfile"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                   app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageView
+                        android:id="@+id/ivusers"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:src="@drawable/ic_my_profile"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tvusers"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="My Profile"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivusers"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <View
+                        android:id="@+id/viewusers"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#e6e6e6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivusers" />
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clMyAddress"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintTop_toBottomOf="@+id/clProfile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivlocations"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:src="@drawable/ic_my_address"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tvmyaddresses"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="My Addresses"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@id/ivlocations"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+                    <View
+                        android:id="@+id/viewaddresses"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="#e6e6e6"
+                        app:layout_constraintTop_toBottomOf="@id/ivlocations" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clMyPayment"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clMyAddress">
+
+                    <ImageView
+                        android:id="@+id/ivmypaymentmethod"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:src="@drawable/ic_cards"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/tvmypaymentmethod"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="My Payment Method"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/ivmypaymentmethod"
+                        app:layout_constraintTop_toBottomOf="@id/ivmypaymentmethod"/>
+
+                    <View
+                        android:id="@+id/viewpaymentmethod"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:background="#e6e6e6"
+                        app:layout_constraintTop_toBottomOf="@id/ivmypaymentmethod" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/clNotification"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintTop_toBottomOf="@+id/clMyPayment"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <ImageView
+                        android:id="@+id/ivnotifications"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:src="@drawable/ic_notification"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+                    <TextView
+                        android:id="@+id/tvnotifications"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Notifications"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        app:layout_constraintStart_toEndOf="@id/ivnotifications"
+                        app:layout_constraintTop_toBottomOf="@id/ivnotifications" />
+
+                    <View
+                        android:id="@+id/viewnotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#e6e6e6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivnotifications" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/clNotification"
+                    android:id="@+id/clCountryLanguage">
+
+                    <ImageView
+                        android:id="@+id/ivcountryandlanguage"
+                        android:layout_width="@dimen/_20sdp"
+                        android:layout_height="@dimen/_20sdp"
+                        android:layout_marginStart="@dimen/_20sdp"
+                        android:src="@drawable/ic_global"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        />
+
+
+                    <TextView
+                        android:id="@+id/tvcountryandlanguage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/bw_modelica"
+                        android:text="Country &amp; Language"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="@dimen/_10sdp"
+                        app:layout_constraintStart_toEndOf="@id/ivcountryandlanguage"
+                        app:layout_constraintTop_toBottomOf="@id/ivcountryandlanguage" />
+
+                    <View
+                        android:id="@+id/viewLanguage"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="15dp"
+                        android:background="#e6e6e6"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/ivcountryandlanguage" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                <TextView
+                    android:id="@+id/tvbepartener"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="I WANT TO BE A PARTNER"
+                    android:textColor="@color/black"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:textSize="12sp"
+                    android:onClick="@{model::onClick}"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/clCountryLanguage" />
+
+                <TextView
+                    android:id="@+id/tvreturnpolicy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="RETURN POLICY"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:onClick="@{model::onClick}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvbepartener" />
+
+                <TextView
+                    android:id="@+id/tvdeliveryinformation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_15sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="DELIVERY INFORMATION"
+                    android:layout_marginHorizontal="@dimen/_20sdp"
+                    android:onClick="@{model::onClick}"
+                    android:textColor="@color/black"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvreturnpolicy" />
+
+                <TextView
+                    android:id="@+id/tvlogout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_20sdp"
+                    android:fontFamily="@font/bw_modelica_medium"
+                    android:text="LOG OUT"
+                    android:paddingVertical="10dp"
+                    android:layout_marginStart="@dimen/_20sdp"
+                    android:onClick="@{model::onClick}"
+                    android:textColor="#f90052"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tvdeliveryinformation" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
